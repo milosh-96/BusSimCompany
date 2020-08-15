@@ -1,0 +1,43 @@
+@tailwind base;
+
+h1 {
+    @apply text-5xl
+}
+h2 {
+    @apply text-4xl
+}
+h3 {
+    @apply text-3xl
+}
+header {
+    @apply p-5 bg-green-900 w-full flex text-gray-100 mb-10
+}
+
+#page {
+    @apply p-5 bg-white min-h-screen w-11/12 my-0 mx-auto
+}
+
+#menu div {
+    @apply text-4xl text-gray-100 px-2
+}
+.bordered-table thead {
+    @apply border-b border-gray-400
+}
+
+ol.generic-list {
+    @apply list-decimal pl-6;
+}
+
+ol.generic-list li,ul.generic-list li {
+    @apply text-2xl p-2
+}
+ol.generic-list li > div,ul.generic-list li > div {
+    @apply px-2
+}
+.route-number {
+    @apply rounded-l-full bg-blue-600  text-white text-center;
+}
+
+.footer-disclaimer {
+    @apply text-sm p-3 bg-green-800 text-white
+}

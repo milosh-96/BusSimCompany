@@ -1,0 +1,6 @@
+{
+    "tailwindCSS.includeLanguages": {
+        "html": "blade"
+    },
+    "tailwindCSS.emmetCompletions": true
+}
