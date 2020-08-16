@@ -10,19 +10,20 @@
             <ul class="generic-list">
                 <li>
                 <a href="/route" class="flex">
-                    <div class="route-number w-6">5</div>
+                    <div class="route-number w-12">5</div>
                     <div>Central Bus Station - Airport</div>
                 </a>
                 </li>
                 <li>
                     <a href="/route" class="flex">
-                        <div class="route-number w-6">6</div>
+                        <div class="route-number w-12">6</div>
                     <div>Westfield - Hayscales</div>
                     </a>
                   </li>
             </ul>
         </div>
         <div class="w-1/4">
+            @if(auth()->user())
             <h2 class="text-3xl">
                 Manage
             </h2>
@@ -32,6 +33,7 @@
                     <a href="#">Delete All</a>
                 </li>
             </ul>
+            @endif
         </div>
 
        </div>

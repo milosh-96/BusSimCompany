@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 Route::get('/route', function () {
     return view('routes.route');
+});
+
+Auth::routes();
+
+Route::prefix('/')->group(function() {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/share', 'HomeController@share')->name('share');
 });
