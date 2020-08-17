@@ -14,7 +14,8 @@ class StopController extends Controller
      */
     public function index()
     {
-        //
+        $stops = Stop::all();
+        return view('stops.index')->with(['stops'=>$stops]);
     }
 
     /**
@@ -24,7 +25,7 @@ class StopController extends Controller
      */
     public function create()
     {
-        //
+        return view('stops.create');
     }
 
     /**
@@ -35,7 +36,9 @@ class StopController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request->all();
+        Stop::create($request->all());
+        return redirect()->route('stops.create');
     }
 
     /**
@@ -44,9 +47,13 @@ class StopController extends Controller
      * @param  \App\Stop  $stop
      * @return \Illuminate\Http\Response
      */
-    public function show(Stop $stop)
+    public function details(Stop $stop)
     {
-        //
+        $vars = [
+            "stop"=>$stop,
+            "title"=>"Bus Stop: " . $stop->name
+        ];
+        return view('stops.details')->with($vars);
     }
 
     /**

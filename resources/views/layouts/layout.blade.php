@@ -7,20 +7,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.6.2/tailwind.min.css">
     <link rel="stylesheet" href="/css/main.css">
-    <title>Document</title>
+    <title>
+        {{isset($title) ? $title : "Index"}} - Bus Sim Company
+     </title>
 </head>
 <body class="bg-gray-100 text-gray-800">
-    <div id="topbar">
-        Account: Miloš Jovanović
-    </div>
+    @include('global.topbar')
     <header>
-        <div class="logo mr-5">
-            <img src="https://cdn4.iconfinder.com/data/icons/aiga-symbol-signs/630/aiga_bus_on_grn_circle-512.png" alt="our logo" class="h-12">
-        </div>
-        <div id="menu" class="hidden">
-            <div>Home</div>
-            <div>Routes</div>
-            <div>Stops</div>
+        <div class="top">
+            @include('global.main-nav')
         </div>
     </header>
 
@@ -29,9 +24,10 @@
 
     <div class="footer-disclaimer">
         This site is made solely for entertainment purposes.
-        This site doesn't access the game or user files in any way. All data is entered by the end-users and
-        listed is only publicly available data.<p>
-        Bus Simulator, Bus Simulator 18 are properties of Astragon Entertainment and stillAlive Studios.
+        This site doesn't have access the game or user files.
+        All data is entered by the end-users.
+        All of the game data on this site is public data, in other words, data that everyone can see via the game interface (stops,buses...).
+        <p>Bus Simulator, Bus Simulator 18 are properties of Astragon Entertainment and stillAlive Studios.
     </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
      @yield('scripts')

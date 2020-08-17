@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Stop;
+
 class HomeController extends Controller
 {
     /**
@@ -27,6 +29,10 @@ class HomeController extends Controller
     }
 
     public function share() {
-        return view('routes.share');
+        $vars = [
+            "stops"=>Stop::all(),
+            "title"=>"Quick Share"
+        ];
+        return view('routes.share')->with($vars);
     }
 }

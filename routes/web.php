@@ -23,3 +23,14 @@ Route::prefix('/')->group(function() {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/share', 'HomeController@share')->name('share');
 });
+
+Route::prefix('stops')->group(function() {
+    Route::get('/create','StopController@create')->name('stops.create');
+    Route::post('/','StopController@store')->name('stops.store');
+    Route::get('/','StopController@index')->name('stops.index');
+    Route::get('/index','StopController@index')->name('stops.index');
+    Route::prefix('{stop}/{slug}')->group(function() {
+        Route::get('/details','StopController@details')->name('stops.details');
+        Route::get('/edit','StopController@edit')->name('stops.edit');
+    });
+});

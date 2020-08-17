@@ -10,11 +10,48 @@ h3 {
     @apply text-3xl
 }
 
+.submit-button
+{
+    @apply p-3 bg-blue-600 text-white text-2xl;
+    :hover {
+        @apply bg-blue-700;
+    }
+}
+
+select {
+    &.big-select {
+        @apply bg-gray-300  p-3 text-2xl;
+    }
+}
+
 #topbar {
     @apply bg-gray-900 text-white shadow-outline border-b-2 border-gray-800 py-2 px-5;
 }
-header {
-    @apply p-5 bg-green-900 w-full flex text-gray-100 mb-10
+
+#header-menu {
+    @apply flex items-center justify-between flex-wrap bg-orange-600 p-6;
+    .logo {
+        @apply flex items-center flex-shrink-0 text-white mr-6;
+        >.icon {
+            @apply h-8 w-8 mr-2;
+        }
+        >.text {
+           @apply font-semibold text-xl tracking-tight;
+        }
+    },
+    .menu-items {
+        @apply text-sm;
+        > a {
+            @apply block mt-4 text-gray-200 mr-4;
+            @media (min-width:1024px) {
+                display: inline-block;
+                margin-top:0;
+            }
+            :hover {
+                @apply text-white;
+            }
+        }
+    }
 }
 
 #page {
@@ -28,20 +65,31 @@ header {
     @apply border-b border-gray-400
 }
 
-ol.generic-list {
-    @apply list-decimal pl-6;
+ol,ul {
+    &.generic-list {
+        @apply pl-6;
+        >li {
+            @apply text-2xl p-2;
+            >div {
+                @apply px-2
+            }
+        }
+    }
+}
+ol {
+    &.generic-list {
+        @apply list-decimal;
+    }
+}
+ul {
+    .generic-list {
+    }
 }
 
-ol.generic-list li,ul.generic-list li {
-    @apply text-2xl p-2
-}
-ol.generic-list li > div,ul.generic-list li > div {
-    @apply px-2
-}
 .route-number {
     @apply rounded-l-full bg-blue-600  text-white text-center;
 }
 
 .footer-disclaimer {
-    @apply text-sm p-3 bg-green-800 text-white
+    @apply text-sm p-3 bg-gray-900 text-white
 }

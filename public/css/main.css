@@ -602,6 +602,32 @@ h3 {
   font-size: 1.875rem
 }
 
+.submit-button
+{
+  padding: 0.75rem;
+  --bg-opacity: 1;
+  background-color: #3182ce;
+  background-color: rgba(49, 130, 206, var(--bg-opacity));
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+  font-size: 1.5rem;
+}
+
+.submit-button :hover {
+  --bg-opacity: 1;
+  background-color: #2b6cb0;
+  background-color: rgba(43, 108, 176, var(--bg-opacity));
+}
+
+select.big-select {
+  --bg-opacity: 1;
+  background-color: #e2e8f0;
+  background-color: rgba(226, 232, 240, var(--bg-opacity));
+  padding: 0.75rem;
+  font-size: 1.5rem;
+}
+
 #topbar {
   --bg-opacity: 1;
   background-color: #1a202c;
@@ -620,17 +646,63 @@ h3 {
   padding-right: 1.25rem;
 }
 
-header {
-  padding: 1.25rem;
-  --bg-opacity: 1;
-  background-color: #22543d;
-  background-color: rgba(34, 84, 61, var(--bg-opacity));
-  width: 100%;
+#header-menu {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  --bg-opacity: 1;
+  background-color: #dd6b20;
+  background-color: rgba(221, 107, 32, var(--bg-opacity));
+  padding: 1.5rem;
+}
+
+#header-menu .logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
   --text-opacity: 1;
-  color: #f7fafc;
-  color: rgba(247, 250, 252, var(--text-opacity));
-  margin-bottom: 2.5rem
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+  margin-right: 1.5rem;
+}
+
+#header-menu .logo >.icon {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+
+#header-menu .logo >.text {
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+}
+
+#header-menu .menu-items {
+  font-size: 0.875rem;
+}
+
+#header-menu .menu-items > a {
+  display: block;
+  margin-top: 1rem;
+  --text-opacity: 1;
+  color: #edf2f7;
+  color: rgba(237, 242, 247, var(--text-opacity));
+  margin-right: 1rem;
+}
+
+@media (min-width:1024px) {
+  #header-menu .menu-items > a {
+    display: inline-block;
+    margin-top:0
+  }
+}
+
+#header-menu .menu-items > a :hover {
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
 }
 
 #page {
@@ -662,19 +734,25 @@ header {
   border-color: rgba(203, 213, 224, var(--border-opacity))
 }
 
-ol.generic-list {
-  list-style-type: decimal;
+ol.generic-list, ul.generic-list {
   padding-left: 1.5rem;
 }
 
-ol.generic-list li,ul.generic-list li {
+ol.generic-list >li, ul.generic-list >li {
   font-size: 1.5rem;
-  padding: 0.5rem
+  padding: 0.5rem;
 }
 
-ol.generic-list li > div,ul.generic-list li > div {
+ol.generic-list >li >div, ul.generic-list >li >div {
   padding-left: 0.5rem;
   padding-right: 0.5rem
+}
+
+ol.generic-list {
+  list-style-type: decimal;
+}
+
+ul .generic-list {
 }
 
 .route-number {
@@ -693,8 +771,8 @@ ol.generic-list li > div,ul.generic-list li > div {
   font-size: 0.875rem;
   padding: 0.75rem;
   --bg-opacity: 1;
-  background-color: #276749;
-  background-color: rgba(39, 103, 73, var(--bg-opacity));
+  background-color: #1a202c;
+  background-color: rgba(26, 32, 44, var(--bg-opacity));
   --text-opacity: 1;
   color: #fff;
   color: rgba(255, 255, 255, var(--text-opacity))

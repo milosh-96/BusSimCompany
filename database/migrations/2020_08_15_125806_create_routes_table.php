@@ -17,6 +17,7 @@ class CreateRoutesTable extends Migration
             $table->id();
             $table->string('number')->default("1");
             $table->string('name')->nullable()->default("");
+            $table->timestamps();
         });
     }
 
