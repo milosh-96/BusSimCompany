@@ -13,8 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/route', function () {
-    return view('routes.route');
+Route::prefix('routes')->group(function() {
+    Route::get('/create','RouteController@create')->name('routes.create');
+    Route::post('/','RouteController@store')->name('routes.store');
+    Route::get('/','RouteController@index')->name('routes.index');
+    Route::get('/index','RouteController@index')->name('routes.index');
+    Route::prefix('{id}')->group(function() {
+        Route::get('/details','RouteController@details')->name('routes.details');
+        Route::get('/edit','RouteController@edit')->name('routes.edit');
+    });
 });
 
 Auth::routes();

@@ -4,7 +4,7 @@
     <div>
         <h1>
             <div class="flex">
-                <div class="route-number w-20 text-center">5</div>
+                <div class="route-number w-20 text-center">17</div>
                 <div class="px-3">Central Bus Station - Airport</div>
             </div>
         </h1>
@@ -18,7 +18,7 @@
                 <tr class="uppercase">
                 <th class="w-1/12 text-left">Hour</th>
                 <th class="w-2/12 text-left">Week days</th>
-                <th class="w-2/12 text-left">Satuday</th>
+                <th class="w-2/12 text-left">Saturday</th>
                 <th class="w-2/12 text-left">Sunday</th>
                 </tr>
             </thead>

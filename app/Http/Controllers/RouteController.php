@@ -44,9 +44,10 @@ class RouteController extends Controller
      * @param  \App\Route  $route
      * @return \Illuminate\Http\Response
      */
-    public function show(Route $route)
+    public function details(Route $route)
     {
         //
+        return view('routes.details');
     }
 
     /**
