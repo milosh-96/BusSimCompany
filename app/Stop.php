@@ -9,8 +9,12 @@ use Illuminate\Support\Str;
 class Stop extends Model
 {
     //
-    protected $fillable = ["name","localizations"];
+    protected $fillable = ["name","localizations","area"];
 
+
+    public function area() {
+        return $this->belongsTo('App\Area');
+    }
     public function slug() {
         return Str::of($this->attributes["name"])->slug("-");
     }

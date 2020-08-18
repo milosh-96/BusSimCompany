@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Stop;
+use App\Area;
 use Illuminate\Http\Request;
 
 class StopController extends Controller
@@ -14,8 +16,8 @@ class StopController extends Controller
      */
     public function index()
     {
-        $stops = Stop::all();
-        return view('stops.index')->with(['stops'=>$stops]);
+        $areas = Area::all();
+        return view('stops.index')->with(['areas'=>$areas]);
     }
 
     /**

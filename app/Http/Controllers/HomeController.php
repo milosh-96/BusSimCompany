@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Stop;
+use App\Area;
 
 class HomeController extends Controller
 {
@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function share() {
         $vars = [
-            "stops"=>Stop::all(),
+            "areas"=>Area::all(),
             "title"=>"Quick Share"
         ];
         return view('routes.share')->with($vars);

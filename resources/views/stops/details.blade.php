@@ -3,7 +3,7 @@
 <div id="page">
     <h1>Stop: {{$stop->name}}</h1>
     <hr>
-        active routes: none
+        Area: {{$stop->area->name}}
     <hr>
     <div class="actions">
         <a href="{{route('stops.edit',$stop->permalink(true))}}">Edit</a>

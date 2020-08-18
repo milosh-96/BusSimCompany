@@ -19,9 +19,13 @@
             </div>
             <div class="w-1/3">
                 <h3>Stops Available</h3>
-                <select class="big-select w-full" id="stop-bank" size="10>
-                    @foreach($stops as $stop)
-                    <option value="{{$stop->id}}">{{$stop->name}}</option>
+                <select class="big-select w-full" id="stop-bank" size="10">
+                    @foreach($areas as $area)
+                    <optgroup label="{{$area->name}}">
+                        @foreach($area->stops as $stop)
+                        <option id="stop-{{$stop->id}}" value="{{$stop->id}}">{{$stop->name}}</option>
+                        @endforeach
+                    </optgroup>
                     @endforeach
                 </select>
             </div>
@@ -35,12 +39,13 @@
 
 @section('scripts')
 <script>
-    $("#stop-bank > option").click((e)=>{
+    $("#stop-bank > optgroup >option").click((e)=>{
         var option = e.currentTarget;
         $("#new-route").append(option.outerHTML);
         option.disabled = true;
 
 
     });
+
 </script>
 @endsection
