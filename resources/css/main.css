@@ -32,10 +32,10 @@ select {
     @apply flex items-center justify-between flex-wrap bg-orange-600 p-6;
     .logo {
         @apply flex items-center flex-shrink-0 text-white mr-6;
-        >.icon {
+        .icon {
             @apply h-8 w-8 mr-2;
         }
-        >.text {
+        .text {
            @apply font-semibold text-xl tracking-tight;
         }
     },

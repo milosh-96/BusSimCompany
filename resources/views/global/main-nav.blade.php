@@ -1,7 +1,9 @@
 <nav id="header-menu">
     <div class="logo">
-      <img class="icon" width="54" height="54" src="https://cdn4.iconfinder.com/data/icons/aiga-symbol-signs/630/aiga_bus_on_grn_circle-512.png">
-      <span class="text">My Bus Company</span>
+        <a href="{{route('home')}}" class="flex">
+            <img class="icon" width="54" height="54" src="https://cdn4.iconfinder.com/data/icons/aiga-symbol-signs/630/aiga_bus_on_grn_circle-512.png">
+            <span class="text">My Bus Company</span>
+        </a>
     </div>
     <div class="block lg:hidden">
       <button class="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white">

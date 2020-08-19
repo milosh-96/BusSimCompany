@@ -16,7 +16,7 @@ class Stop extends Model
         return $this->belongsTo('App\Area');
     }
     public function routes() {
-        return $this->belongsToMany('App\Route','route_id','stop_id');
+        return $this->belongsToMany('App\Route');
     }
     public function slug() {
         return Str::of($this->attributes["name"])->slug("-");

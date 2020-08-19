@@ -64,7 +64,9 @@
             <h3>Direction A</h3>
             <ol class="generic-list">
                @foreach($route->stops as $stop)
-               <li>{{$stop->name}}</li>
+               <li>
+                   <a href="{{route('stops.details',$stop->permalink(true))}}">{{$stop->name}}</a>
+               </li>
                @endforeach
             </ol>
         </div>

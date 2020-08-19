@@ -667,13 +667,13 @@ select.big-select {
   margin-right: 1.5rem;
 }
 
-#header-menu .logo >.icon {
+#header-menu .logo .icon {
   height: 2rem;
   width: 2rem;
   margin-right: 0.5rem;
 }
 
-#header-menu .logo >.text {
+#header-menu .logo .text {
   font-weight: 600;
   font-size: 1.25rem;
   letter-spacing: -0.025em;

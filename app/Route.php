@@ -17,4 +17,12 @@ class Route extends Model
         return sprintf("%s - %s",$this->stops->first()->name,$this->stops->last()->name);
     }
 
+    public function permalink($array = false) {
+        if($array) {
+            return [
+                "hash_id"=>$this->attributes["hash_id"],
+            ];
+        }
+        return sprintf("%s",$this->attributes["hash_id"]);
+    }
 }
