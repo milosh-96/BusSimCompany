@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Route;
 use App\Area;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class RouteController extends Controller
 {
@@ -45,10 +46,11 @@ class RouteController extends Controller
      * @param  \App\Route  $route
      * @return \Illuminate\Http\Response
      */
-    public function details(Route $route)
+    public function details(Route $route,$hash_id)
     {
         //
-        return view('routes.details');
+        $route = $route->where('hash_id',$hash_id)->first();
+        return view('routes.details')->with(["route"=>$route]);
     }
 
     /**
@@ -83,5 +85,19 @@ class RouteController extends Controller
     public function destroy(Route $route)
     {
         //
+    }
+
+
+    public function quickShare(Request $request,Route $route) {
+        $request->merge(["hash_id"=>Str::uuid()]);
+        $route = Route::create($request->all());
+
+        $i = 1;
+        foreach($request->stops as $stop) {
+            $route->stops()->attach($stop,['position'=>$i,'direction'=>1]);
+            $i++;
+        }
+
+        return redirect()->route('routes.details', ['hash_id' => $route->hash_id]);
     }
 }

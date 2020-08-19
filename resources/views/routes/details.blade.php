@@ -4,8 +4,8 @@
     <div>
         <h1>
             <div class="flex">
-                <div class="route-number w-20 text-center">17</div>
-                <div class="px-3">Central Bus Station - Airport</div>
+                <div class="route-number w-20 text-center">{{$route->number}}</div>
+                <div class="px-3">{{$route->stops->first()->name}} - {{$route->stops->last()->name}}</div>
             </div>
         </h1>
     </div>
@@ -63,19 +63,17 @@
         <div class="w-1/2">
             <h3>Direction A</h3>
             <ol class="generic-list">
-                <li>Central Bus Station</li>
-                <li>Roman Road</li>
-                <li>Westfield</li>
-                <li>Airport</li>
+               @foreach($route->stops as $stop)
+               <li>{{$stop->name}}</li>
+               @endforeach
             </ol>
         </div>
         <div class="w-1/2">
             <h3>Direction B</h3>
             <ol class="generic-list" reversed>
-                <li>Central Bus Station</li>
-                <li>Roman Road</li>
-                <li>Westfield</li>
-                <li>Airport</li>
+                @foreach($route->stops as $stop)
+                <li>{{$stop->name}}</li>
+                @endforeach
             </ol>
         </div>
     </div>

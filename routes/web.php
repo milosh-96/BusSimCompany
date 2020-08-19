@@ -18,7 +18,8 @@ Route::prefix('routes')->group(function() {
     Route::post('/','RouteController@store')->name('routes.store');
     Route::get('/','RouteController@index')->name('routes.index');
     Route::get('/index','RouteController@index')->name('routes.index');
-    Route::prefix('{id}')->group(function() {
+    Route::post('quick-share','RouteController@quickShare')->name('routes.post-quick-share');
+    Route::prefix('{hash_id}')->group(function() {
         Route::get('/details','RouteController@details')->name('routes.details');
         Route::get('/edit','RouteController@edit')->name('routes.edit');
     });
