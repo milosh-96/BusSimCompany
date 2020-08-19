@@ -8,18 +8,17 @@
                 Active Routes
             </h2>
             <ul class="generic-list">
-                <li>
-                <a href="/route" class="flex">
-                    <div class="route-number w-12">5</div>
-                    <div>Central Bus Station - Airport</div>
+              @foreach($routes as $route)
+              <li>
+                <a href="{{route('routes.details',$route->hash_id)}}" class="flex">
+                    <div class="route-number w-12">{{$route->number}}</div>
+                    <div>
+                        {{$route->autoName()}}
+                    </div>
                 </a>
                 </li>
-                <li>
-                    <a href="/route" class="flex">
-                        <div class="route-number w-12">6</div>
-                    <div>Westfield - Hayscales</div>
-                    </a>
-                  </li>
+              @endforeach
+
             </ul>
         </div>
         <div class="w-1/4">
