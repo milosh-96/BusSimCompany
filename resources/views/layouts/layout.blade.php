@@ -22,13 +22,7 @@
     @yield('content')
 
 
-    <div class="footer-disclaimer">
-        This site is made solely for entertainment purposes.
-        This site doesn't have access the game or user files.
-        All data is entered by the end-users.
-        All of the game data on this site is public data, in other words, data that everyone can see via the game interface (stops,buses...).
-        <p>Bus Simulator, Bus Simulator 18 are properties of Astragon Entertainment and stillAlive Studios.
-    </div>
+    @include('global.footer')
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
      @yield('scripts')
 </body>

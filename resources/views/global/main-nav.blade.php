@@ -12,10 +12,10 @@
     </div>
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="menu-items lg:flex-grow">
-        <a href="#responsive-header">
+        <a href="{{route('home')}}">
           Home
         </a>
-        <a href="#responsive-header">
+        <a href="{{route('routes.index')}}">
           Suggested Routes
         </a>
         <a href="{{route('stops.index')}}">
