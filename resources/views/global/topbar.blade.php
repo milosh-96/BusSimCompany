@@ -1,6 +1,9 @@
 <div id="topbar">
     @if(auth()->user())
-    <div class="active-user"></div>
+    <div class="active-user">
+        <strong>User Name: </strong>
+        {{auth()->user()->name}}
+    </div>
     @else
     <div class="login">
         <a href="{{route('login')}}">Login</a>

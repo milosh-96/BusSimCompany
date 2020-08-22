@@ -22,6 +22,7 @@ Route::prefix('routes')->group(function() {
     Route::prefix('{hash_id}')->group(function() {
         Route::get('/details','RouteController@details')->name('routes.details');
         Route::get('/edit','RouteController@edit')->name('routes.edit');
+        Route::post('/update','RouteController@update')->name('routes.update');
     });
 });
 

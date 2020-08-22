@@ -7,6 +7,7 @@ use App\Area;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+
 class RouteController extends Controller
 {
     /**
@@ -59,9 +60,16 @@ class RouteController extends Controller
      * @param  \App\Route  $route
      * @return \Illuminate\Http\Response
      */
-    public function edit(Route $route)
+    public function edit(Route $route,$hash_id)
     {
-        //
+        $route = $route->where('hash_id',$hash_id)->first();
+        $vars = [
+            "route"=>$route,
+            "areas"=>Area::all(),
+            "title"=>"Edit Route"
+
+        ];
+        return view('routes.edit')->with($vars);
     }
 
     /**
@@ -71,9 +79,16 @@ class RouteController extends Controller
      * @param  \App\Route  $route
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Route $route)
+    public function update(Request $request, Route $route,$hash_id)
     {
-        //
+        $route = Route::where('hash_id',$hash_id)->updateOrCreate($request->except(['_token','stops']));
+        $i = 1;
+        $route->stops()->sync([]);
+        foreach($request->stops as $stop) {
+            $route->stops()->attach($stop,['position'=>$i,'direction'=>1]);
+            $i++;
+        }
+      return redirect()->route('routes.details',$route->permalink(true));
     }
 
     /**

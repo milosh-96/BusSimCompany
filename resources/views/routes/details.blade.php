@@ -80,6 +80,7 @@
         </div>
     </div>
     </div>
+    <a href="{{route('routes.edit',$route->permalink(true))}}">Edit</a>
 </div>
 
 
