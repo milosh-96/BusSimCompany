@@ -5,11 +5,12 @@
         <h1>
             <div class="flex">
                 <div class="route-number w-20 text-center">{{$route->number}}</div>
-                <div class="px-3">{{$route->stops->first()->name}} - {{$route->stops->last()->name}}</div>
+                <div class="px-3">{{$route->autoName()}}</div>
             </div>
         </h1>
     </div>
 
+    @if($route->timetable) {
     <div class="timetable pl-20">
         <h2 id="timetable">Timetable</h2>
 
@@ -56,6 +57,7 @@
             </tbody>
         </table>
     </div>
+    @endif
 
     <div class="stops pl-20">
         <h2 id="stops">Stops</h2>

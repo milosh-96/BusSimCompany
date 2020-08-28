@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.6.2/tailwind.min.css">
     <link rel="stylesheet" href="/css/main.css">
+    @include('global.header-icons')
     <title>
         {{isset($title) ? $title : "Index"}} - Bus Sim Company
      </title>

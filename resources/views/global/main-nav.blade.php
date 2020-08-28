@@ -24,8 +24,8 @@
         <a href="#responsive-header">
         </a>
       </div>
-      <div>
-        <a href="{{route('share')}}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-orange-500 border-white hover:border-transparent hover:text-orange-600 bg-white mt-4 lg:mt-0">Share Your Route!</a>
-        <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-500 hover:bg-white mt-4 lg:mt-0 animate-pulse">Create Your Company Now!</a>
+      <div class="quick-actions">
+        <a href="{{route('share')}}">Share Your Route!</a>
+        <a href="{{route('companies.create')}}" class="lg:mt-0 animate-pulse">Create Your Company Now!</a>
       </div>
     </div>

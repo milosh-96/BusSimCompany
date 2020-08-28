@@ -1,13 +1,37 @@
 @tailwind base;
 
 h1 {
-    @apply text-5xl
+    @apply text-5xl;
 }
 h2 {
-    @apply text-4xl
+    @apply text-4xl;
 }
 h3 {
-    @apply text-3xl
+    @apply text-3xl;
+}
+
+.quick-actions
+{
+    a{
+        @apply bg-white inline-block text-sm px-4 py-2 leading-none border rounded text-orange-500 border-white mt-4;
+        :hover {
+            @apply text-blue-900;
+        }
+    }
+}
+
+form {
+    &.default-form {
+       @apply bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4;
+    }
+    label {
+        @apply block text-gray-700 text-sm font-bold mb-2;
+    }
+    .input-group {
+        input {
+            @apply shadow-outline shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+        }
+    }
 }
 
 .submit-button

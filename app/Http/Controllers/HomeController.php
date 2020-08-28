@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $vars = ["routes"=>Route::all()];
+        $vars = ["routes"=>Route::orderBy("number")->get()];
         return view('index')->with($vars);
     }
 

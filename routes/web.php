@@ -26,6 +26,19 @@ Route::prefix('routes')->group(function() {
     });
 });
 
+Route::group(["prefix"=>"companies","middleware"=>"auth"],function() {
+    Route::get('/create','CompanyController@create')->name('companies.create');
+    Route::post('/','CompanyController@store')->name('companies.store');
+    Route::get('/','CompanyController@index')->name('companies.index');
+    Route::get('/index','CompanyController@index')->name('companies.index');
+    Route::post('quick-share','CompanyController@quickShare')->name('companies.post-quick-share');
+    Route::prefix('{company}')->group(function() {
+        Route::get('/details','CompanyController@details')->name('companies.details');
+        Route::get('/edit','CompanyController@edit')->name('companies.edit');
+        Route::post('/update','CompanyController@update')->name('companies.update');
+    });
+});
+
 Auth::routes();
 
 Route::prefix('/')->group(function() {

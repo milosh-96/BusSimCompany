@@ -14,7 +14,9 @@ class Route extends Model
 
     public function autoName()
     {
-        return sprintf("%s - %s",$this->stops->first()->name,$this->stops->last()->name);
+        $startStop = str_replace("- ","/",$this->stops->first()->name);
+        $lastStop = str_replace("- ","/",$this->stops->last()->name);
+        return sprintf("%s - %s",$startStop,$lastStop);
     }
 
     public function permalink($array = false) {

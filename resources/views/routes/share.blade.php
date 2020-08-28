@@ -12,18 +12,18 @@
         <div>
             <div class="flex">
             <div class="w-2/3">
-                <form action="{{route('routes.post-quick-share')}}" method="POST">
+                <form class="default-form" action="{{route('routes.post-quick-share')}}" method="POST">
                     {{ csrf_field() }}
-                <h3>Your Route</h3>
-               <div class="w-full">
-                <label>Route number</label>
-                <input class="text-2xl" name="number" class="border-blue-200" />
-               </div>
+                <div class="flex my-2 py-2">
+                    <h3>Your Route</h3>
+                    <input style="width:150px" class="text-2xl rounded-md mx-3 text-center text-white bg-green-500" name="number" />
+                </div>
                 <select name="stops[]" multiple class="big-select w-2/3" size="20" id="new-route">
                 </select>
                 <div class="w-full">
                     <input type="submit" class="submit-button w-full" value="Share!">
                 </div>
+                </form>
             </div>
             <div class="w-1/3">
                 <h3>Stops Available</h3>

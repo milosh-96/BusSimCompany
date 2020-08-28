@@ -54,7 +54,6 @@
         });
 
         $("#stop-bank > optgroup >option").click((e)=>{
-            $("#new-route > option").attr("selected","selected");
 
         var option = e.currentTarget;
         $("#new-route").append(option.outerHTML);
