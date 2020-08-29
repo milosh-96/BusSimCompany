@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CompanyController extends Controller
 {
@@ -37,7 +38,12 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $request->merge(["user_id"=>auth()->user()->id]);
+
+        $request->merge(
+            [
+                "user_id"=>auth()->user()->id,
+                "hash_id"=>Str::uuid()
+            ]);
         $company = Company::create($request->all());
         return redirect()->route('companies.index');
     }
@@ -48,10 +54,15 @@ class CompanyController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function details(Company $company)
+    public function details(Company $company,$hash_id)
     {
+            $company = $company->where("hash_id",$hash_id)->first();
+        if(!$company) {
+            abort(404);
+        }
         $vars = [
-            "title"=>$company->name
+            "title"=>$company->name,
+            "company"=>$company
         ];
         return view('companies.details',$vars);
     }

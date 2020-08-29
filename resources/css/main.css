@@ -21,24 +21,42 @@ h3 {
 }
 
 form {
-    &.default-form {
-       @apply bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4;
-    }
-    label {
-        @apply block text-gray-700 text-sm font-bold mb-2;
-    }
-    .input-group {
-        input {
-            @apply shadow-outline shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+    &.default {
+        @media (min-width:768px) {
+            &.default {
+                @apply w-1/2 mx-auto;
+                > div {
+                    @apply w-11/12 mx-auto;
+                    > input {
+                    }
+                }
+            }
         }
+       .input-group {
+           @apply w-full py-2;
+
+           > div {
+                > label {
+                    @apply uppercase;
+                    font-size:12px;
+
+                }
+               > input {
+                   @apply w-full text-3xl bg-gray-100 p-2;
+               }
+           }
+       }
     }
 }
 
 .submit-button
 {
-    @apply p-3 bg-blue-600 text-white text-2xl;
+    @apply p-3 bg-blue-600 text-white ;
     :hover {
         @apply bg-blue-700;
+    }
+    &.large {
+       @apply text-2xl;
     }
 }
 

@@ -2,20 +2,17 @@
 
 @section('content')
 <div id="page">
-    <div class="flex">
-
-        <div class="w-1/2">
 
             <h1>{{ __('Register') }}</h1>
 
-            <form method="POST" action="{{ route('register') }}">
+            <form class="default" method="POST" action="{{ route('register') }}">
                 @csrf
 
-                <div>
+                <div class="input-group">
+                    <div>
                     <label>{{ __('Name') }}</label>
 
-                    <div>
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input id="name" type="text" name="name" value="{{ old('name') }}">
 
                         @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -25,10 +22,10 @@
                     </div>
                 </div>
 
-                <div>
-                    <label for="email">{{ __('E-Mail Address') }}</label>
+                <div class="input-group">
 
                     <div>
+                        <label for="email">{{ __('E-Mail Address') }}</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                         @error('email')
@@ -39,10 +36,10 @@
                     </div>
                 </div>
 
-                <div>
-                    <label for="password">{{ __('Password') }}</label>
+                <div class="input-group">
 
                     <div>
+                        <label for="password">{{ __('Password') }}</label>
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                         @error('password')
@@ -53,17 +50,17 @@
                     </div>
                 </div>
 
-                <div>
-                    <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                <div class="input-group">
 
                     <div>
+                        <label for="password-confirm">{{ __('Confirm Password') }}</label>
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                     </div>
                 </div>
 
-                <div>
+                <div class="input-group">
                     <div>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="submit-button w-full">
                             {{ __('Register') }}
                         </button>
                     </div>
@@ -71,10 +68,5 @@
             </form>
 
         </div>
-        <div class="w-1/2"></div>
-
-    </div>
-
-
 </div>
 @endsection

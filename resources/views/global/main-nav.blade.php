@@ -26,6 +26,10 @@
       </div>
       <div class="quick-actions">
         <a href="{{route('share')}}">Share Your Route!</a>
+        @if(auth()->user()->company)
+        <a href="{{route('companies.details',auth()->user()->company->permalink(true))}}" class="lg:mt-0 animate-pulse">{{auth()->user()->company->name}}</a>
+        @else
         <a href="{{route('companies.create')}}" class="lg:mt-0 animate-pulse">Create Your Company Now!</a>
+        @endif
       </div>
     </div>

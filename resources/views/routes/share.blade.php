@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 @section('content')
     <div id="page">
+        <form class="default-form" action="{{route('routes.post-quick-share')}}" method="POST">
+
         <div class="bg-red-300 text-red-900 p-5">
             To save your routes, register. Quick Share Routes will be deleted after 5 days.
         </div>
@@ -10,22 +12,18 @@
             collection of your routes - <a href="{{route('register')}}">register</a> and create your company. Read more details <a href="#">here</a>.
         </p>
         <div>
-            <div class="flex">
-            <div class="w-2/3">
-                <form class="default-form" action="{{route('routes.post-quick-share')}}" method="POST">
+            <div class="md:flex">
+            <div class="w-full md:w-2/3">
                     {{ csrf_field() }}
-                <div class="flex my-2 py-2">
+                <div class="my-2 py-2">
                     <h3>Your Route</h3>
                     <input style="width:150px" class="text-2xl rounded-md mx-3 text-center text-white bg-green-500" name="number" />
                 </div>
-                <select name="stops[]" multiple class="big-select w-2/3" size="20" id="new-route">
+                <select name="stops[]" multiple class="big-select w-full md:w-2/3" size="20" id="new-route">
                 </select>
-                <div class="w-full">
-                    <input type="submit" class="submit-button w-full" value="Share!">
-                </div>
-                </form>
+
             </div>
-            <div class="w-1/3">
+            <div class="w-full md:w-1/3">
                 <h3>Stops Available</h3>
                 <select class="big-select w-full" id="stop-bank" size="10">
                     @foreach($areas as $area)
@@ -40,6 +38,10 @@
             </div>
 
     </div>
+    <div class="w-full">
+        <input type="submit" class="submit-button w-full" value="Share!">
+    </div>
+</form>
     </div>
 @endsection
 

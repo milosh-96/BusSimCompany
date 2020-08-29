@@ -3,8 +3,8 @@
 <div id="page">
     <div>
         <h1>
-            <div class="flex">
-                <div class="route-number w-20 text-center">{{$route->number}}</div>
+            <div>
+                <div class="route-number">{{$route->number}}</div>
                 <div class="px-3">{{$route->autoName()}}</div>
             </div>
         </h1>
@@ -59,10 +59,10 @@
     </div>
     @endif
 
-    <div class="stops pl-20">
+    <div class="stops">
         <h2 id="stops">Stops</h2>
-        <div class="flex">
-        <div class="w-1/2">
+        <div class="md:flex">
+        <div class="w-full md:w-1/2">
             <h3>Direction A</h3>
             <ol class="generic-list">
                @foreach($route->stops as $stop)
@@ -72,7 +72,7 @@
                @endforeach
             </ol>
         </div>
-        <div class="w-1/2">
+        <div class="w-full md:w-1/2">
             <h3>Direction B</h3>
             <ol class="generic-list" reversed>
                 @foreach($route->stops as $stop)

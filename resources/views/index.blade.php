@@ -2,16 +2,19 @@
 @section('content')
     <div id="page"">
 
-       <div class="flex">
-        <div class="w-3/4">
+       <div>
+        <div class="w-full">
             <h2 class="text-3xl">
                 Active Routes
             </h2>
             <ul class="generic-list">
               @foreach($routes as $route)
               <li>
-                <a href="{{route('routes.details',$route->hash_id)}}" class="flex">
-                    <div class="route-number w-12">{{$route->number}}</div>
+                <a href="{{route('routes.details',$route->hash_id)}}">
+                    <div>
+                        <div class="route-number">{{$route->number}}</div>
+                    </div>
+
                     <div>
                         {{$route->autoName()}}
                     </div>
