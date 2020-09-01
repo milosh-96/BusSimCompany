@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('routes')->group(function() {
-    Route::get('/create','RouteController@create')->name('routes.create');
+    Route::get('/create','HomeController@share')->name('routes.create');
     Route::post('/','RouteController@store')->name('routes.store');
     Route::get('/','HomeController@index')->name('routes.index');
     Route::get('/index','HomeController@index')->name('routes.index');
@@ -27,13 +27,14 @@ Route::prefix('routes')->group(function() {
 });
 
 Route::group(["prefix"=>"companies","middleware"=>"auth"],function() {
-    Route::get('/create','CompanyController@create')->name('companies.create');
-    Route::post('/','CompanyController@store')->name('companies.store');
+    Route::get('/create','CompanyController@create')->name('companies.create')->middleware('user');
+    Route::post('/','CompanyController@store')->name('companies.store')->middleware('user');
     Route::get('/','CompanyController@index')->name('companies.index');
     Route::get('/index','CompanyController@index')->name('companies.index');
     Route::post('quick-share','CompanyController@quickShare')->name('companies.post-quick-share');
     Route::prefix('{hash_id}')->group(function() {
         Route::get('/details','CompanyController@details')->name('companies.details');
+        Route::get('/drivers/sheet','CompanyController@details')->name('companies.driver-sheet');
         Route::get('/edit','CompanyController@edit')->name('companies.edit');
         Route::post('/update','CompanyController@update')->name('companies.update');
     });

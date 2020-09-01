@@ -6,10 +6,16 @@ use App\Route;
 use App\Area;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
+use App\Services\RouteService;
 
 
 class RouteController extends Controller
 {
+    private $routeService;
+    public function __construct(RouteService $routeService) {
+        $this->routeService = $routeService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -49,9 +55,13 @@ class RouteController extends Controller
      */
     public function details(Route $route,$hash_id)
     {
-        //
+
         $route = $route->where('hash_id',$hash_id)->first();
-        return view('routes.details')->with(["route"=>$route]);
+        $vars = [
+            "title"=>$route->autoName(true),
+            "route"=>$route
+        ];
+        return view('routes.details')->with($vars);
     }
 
     /**
@@ -103,15 +113,17 @@ class RouteController extends Controller
     }
 
 
-    public function quickShare(Request $request,Route $route) {
-        $request->merge(["hash_id"=>Str::uuid()]);
-        $route = Route::create($request->all());
-
-        $i = 1;
-        foreach($request->stops as $stop) {
-            $route->stops()->attach($stop,['position'=>$i,'direction'=>1]);
-            $i++;
+    public function quickShare(Request $request) {
+        $request->validate([
+            "stops"=>"required|array|min:3",
+            "number"=>"required|max:25"
+        ]);
+        $annon = true;
+        if(auth()->user() && auth()->user()->company) {
+            $annon = false;
         }
+        $route = $this->routeService->saveNewRoute($request->all(),$annon);
+
 
         return redirect()->route('routes.details', ['hash_id' => $route->hash_id]);
     }

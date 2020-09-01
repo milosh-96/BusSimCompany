@@ -2,30 +2,33 @@
 @section('content')
     <div id="page">
         <form class="default-form" action="{{route('routes.post-quick-share')}}" method="POST">
+                    {{ csrf_field() }}
 
-        <div class="bg-red-300 text-red-900 p-5">
-            To save your routes, register. Quick Share Routes will be deleted after 5 days.
+        @if(!auth()->user() || !auth()->user()->company)
+        <div class="message-box alert">
+            To save your routes, <a href="{{route('register')}}">Register</a>! Quick Share Routes will be deleted after 5 days.
         </div>
-        <h1>Share a Route</h1>
+        @endif
         <p class="italic">
+            @if(!auth()->user() || !auth()->user()->company)
             If you want to quickly share your routes use this tool. If you want to maintain a
             collection of your routes - <a href="{{route('register')}}">register</a> and create your company. Read more details <a href="#">here</a>.
+            @endif
         </p>
         <div>
+            <div>
+               <label>Enter number of your route:</label> <input style="width:150px" placeholder="route number" class="text-2xl rounded-md mx-3 text-center text-white bg-green-500" name="number" />
+            </div>
             <div class="md:flex">
             <div class="w-full md:w-2/3">
-                    {{ csrf_field() }}
-                <div class="my-2 py-2">
-                    <h3>Your Route</h3>
-                    <input style="width:150px" class="text-2xl rounded-md mx-3 text-center text-white bg-green-500" name="number" />
-                </div>
+                <h3>Selected Stops</h3>
                 <select name="stops[]" multiple class="big-select w-full md:w-2/3" size="20" id="new-route">
                 </select>
 
             </div>
             <div class="w-full md:w-1/3">
                 <h3>Stops Available</h3>
-                <select class="big-select w-full" id="stop-bank" size="10">
+                <select class="big-select w-full" id="stop-bank" size="15">
                     @foreach($areas as $area)
                     <optgroup label="{{$area->name}}">
                         @foreach($area->stops as $stop)

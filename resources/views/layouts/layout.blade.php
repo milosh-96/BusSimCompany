@@ -14,12 +14,14 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
     @include('global.topbar')
-    <header>
+    <header class="mb-5">
         <div class="top">
             @include('global.main-nav')
         </div>
     </header>
-
+    <div class="w-11/12 mx-auto">
+        @include('global.errors')
+    </div>
     @yield('content')
 
 

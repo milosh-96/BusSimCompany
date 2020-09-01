@@ -4,10 +4,15 @@
     <div>
         <h1>
             <div>
-                <div class="route-number">{{$route->number}}</div>
+                <div class="route-number w-7/12">{{$route->number}}</div>
                 <div class="px-3">{{$route->autoName()}}</div>
             </div>
         </h1>
+        <div>
+            @if($route->company)
+            Operated By: {{$route->company->name}}
+            @endif
+        </div>
     </div>
 
     @if($route->timetable) {

@@ -129,9 +129,21 @@ ul {
 }
 
 .route-number {
-    @apply rounded-l-full bg-blue-600  text-white text-center;
+    @apply bg-blue-600  text-white px-3;
+    width:75px;
 }
 
 .footer-disclaimer {
     @apply text-sm p-3 bg-gray-900 text-white
+}
+
+
+.message-box {
+   @apply border-l-8 border-gray-600 bg-gray-400 text-gray-900 p-5;
+   &.alert {
+        @apply bg-orange-300 border-orange-400 text-orange-900;
+   }
+   &.warning {
+        @apply bg-red-300 border-red-400 text-red-900;
+   }
 }

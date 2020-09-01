@@ -824,15 +824,15 @@ ul .generic-list {
 }
 
 .route-number {
-  border-top-left-radius: 9999px;
-  border-bottom-left-radius: 9999px;
   --bg-opacity: 1;
   background-color: #3182ce;
   background-color: rgba(49, 130, 206, var(--bg-opacity));
   --text-opacity: 1;
   color: #fff;
   color: rgba(255, 255, 255, var(--text-opacity));
-  text-align: center;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  width:75px;
 }
 
 .footer-disclaimer {
@@ -844,4 +844,42 @@ ul .generic-list {
   --text-opacity: 1;
   color: #fff;
   color: rgba(255, 255, 255, var(--text-opacity))
+}
+
+.message-box {
+  border-left-width: 8px;
+  --border-opacity: 1;
+  border-color: #718096;
+  border-color: rgba(113, 128, 150, var(--border-opacity));
+  --bg-opacity: 1;
+  background-color: #cbd5e0;
+  background-color: rgba(203, 213, 224, var(--bg-opacity));
+  --text-opacity: 1;
+  color: #1a202c;
+  color: rgba(26, 32, 44, var(--text-opacity));
+  padding: 1.25rem;
+}
+
+.message-box.alert {
+  --bg-opacity: 1;
+  background-color: #fbd38d;
+  background-color: rgba(251, 211, 141, var(--bg-opacity));
+  --border-opacity: 1;
+  border-color: #f6ad55;
+  border-color: rgba(246, 173, 85, var(--border-opacity));
+  --text-opacity: 1;
+  color: #7b341e;
+  color: rgba(123, 52, 30, var(--text-opacity));
+}
+
+.message-box.warning {
+  --bg-opacity: 1;
+  background-color: #feb2b2;
+  background-color: rgba(254, 178, 178, var(--bg-opacity));
+  --border-opacity: 1;
+  border-color: #fc8181;
+  border-color: rgba(252, 129, 129, var(--border-opacity));
+  --text-opacity: 1;
+  color: #742a2a;
+  color: rgba(116, 42, 42, var(--text-opacity));
 }

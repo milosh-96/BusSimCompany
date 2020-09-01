@@ -6,16 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Route extends Model
 {
-    protected $fillable = ["hash_id","number","name"];
+    protected $fillable = ["hash_id","number","name","company_id","anonymous"];
 
+    public function company() {
+        return $this->belongsTo('App\Company');
+
+    }
     public function stops() {
         return $this->belongsToMany('App\Stop');
     }
 
-    public function autoName()
+    public function autoName($number = false)
     {
         $startStop = str_replace("- ","/",$this->stops->first()->name);
         $lastStop = str_replace("- ","/",$this->stops->last()->name);
+        if($number) {
+            return sprintf("%d: %s - %s",$this->attributes['number'],$startStop,$lastStop);
+        }
         return sprintf("%s - %s",$startStop,$lastStop);
     }
 

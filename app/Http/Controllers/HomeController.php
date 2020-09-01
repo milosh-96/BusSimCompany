@@ -25,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(auth()->user()){
+            return (new CompanyController)->details(auth()->user()->company,auth()->user()->company->hash_id);
+        }
         $vars = ["routes"=>Route::orderBy("number")->get()];
         return view('index')->with($vars);
     }
