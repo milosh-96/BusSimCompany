@@ -1,7 +1,7 @@
 <footer class="w-11/12 mx-auto">
     <div class="flex">
         <div class="w-1/3">
-            #WeLoveBuses
+            <a href="">Support Web Site</a>
         </div>
     </div>
 

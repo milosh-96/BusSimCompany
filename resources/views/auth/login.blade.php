@@ -2,6 +2,8 @@
 
 @section('content')
 <div id="page">
+    <a href="{{route('home')}}">Back to Home</a>
+    <h1>{{ __('Login') }}</h1>
 
             <form class="default" method="POST" action="{{ route('login') }}">
                 @csrf

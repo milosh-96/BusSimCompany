@@ -2,6 +2,7 @@
 
 @section('content')
 <div id="page">
+    <a href="{{route('home')}}">Back to Home</a>
 
             <h1>{{ __('Register') }}</h1>
 

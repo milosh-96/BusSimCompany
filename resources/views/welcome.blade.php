@@ -64,7 +64,7 @@
             }
             a.btn {
                 width: 100%;
-                background: #f6ad55;
+                background: rgb(221,107,32);
                 display: block;
                 text-align: center;
                 line-height: 40px;
