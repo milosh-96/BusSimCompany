@@ -53,7 +53,7 @@
                 font-style: italic;
                 font-weight: 500;
                 font-size: 24px;
-                color: #ccc;
+                color: #1C7D25;
                 width:100%;
                 padding: 20px;
             }
@@ -64,7 +64,7 @@
             }
             a.btn {
                 width: 100%;
-                background: #ccc;
+                background: #f6ad55;
                 display: block;
                 text-align: center;
                 line-height: 40px;
@@ -76,12 +76,10 @@
                 color: #FFFFFF;
                 text-decoration: none;
             }
-            .buttons > a.btn#cta-first:hover {
+            .buttons > a.btn:hover {
                 background: #1C7D25;
             }
-            .buttons > a.btn#cta-second:hover {
-                background: #1362AB;
-            }
+
             a.btn#cta-first {
             }
             a.btn#cta-second {
