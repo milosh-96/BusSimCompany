@@ -59,7 +59,7 @@
             }
             .buttons {
                 width:100%;
-                display:flex;
+                display: block;
                 box-sizing: border-box;
             }
             a.btn {
@@ -116,6 +116,9 @@
                 }
                 a.btn#cta-second {
                     margin-right: 10px;
+                }
+                .buttons {
+                    display: flex;
                 }
             }
 
