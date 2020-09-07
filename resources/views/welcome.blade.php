@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title>Bus Sim Company - A depth for your Bus Simulator gaming</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:200,400,500,600" rel="stylesheet">
@@ -138,7 +138,7 @@
             </div>
             <div id="hero">
                 <div class="title">
-                    Add more depth to Bus Simulator
+                    Add more depth to Bus Simulator gaming
                 </div>
                 <div class="description">
                     <ul style="list-style: none;margin:0;">
