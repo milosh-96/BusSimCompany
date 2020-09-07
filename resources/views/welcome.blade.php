@@ -46,7 +46,7 @@
                 text-align:left;
                 padding:0 20px;
                 margin-top: 30px;
-                color: #ccc;
+                color: #1C7D25;
             }
             #hero > .description {
                 font-family: Roboto;
