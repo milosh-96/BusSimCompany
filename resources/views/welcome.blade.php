@@ -3,98 +3,162 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:200,400,500,600" rel="stylesheet">
 
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                background: #F5F5F5;
                 margin: 0;
+                padding:0;
+            }
+            #logo {
+                width: 100px;
+                height: 100px;
+                margin: 0 auto;
+                z-index: 999;
+                margin-bottom: -20px;
+            }
+            #logo > img {
+                width: 100%;
             }
 
-            .full-height {
-                height: 100vh;
+            #hero {
+                width: 100%;
+                padding-top:10px;
+                box-sizing: border-box;
+                background: #EDEDED;
             }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
+            #hero > .title {
+                width: 100%;
+                margin:0 auto;
+                box-sizing: border-box;
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 32px;
+                text-align:left;
+                padding:0 20px;
+                margin-top: 30px;
+                color: #ccc;
             }
-
-            .position-ref {
-                position: relative;
+            #hero > .description {
+                font-family: Roboto;
+                font-style: italic;
+                font-weight: 500;
+                font-size: 24px;
+                color: #ccc;
+                width:100%;
+                padding: 20px;
             }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
+            .buttons {
+                width:100%;
+                display:flex;
+                box-sizing: border-box;
             }
-
-            .content {
+            a.btn {
+                width: 100%;
+                background: #ccc;
+                display: block;
                 text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
+                line-height: 40px;
+                padding: 15px 5px;
+                font-family: Roboto;
+                font-style: italic;
+                font-weight: 500;
+                font-size: 36px;
+                color: #FFFFFF;
                 text-decoration: none;
-                text-transform: uppercase;
+            }
+            .buttons > a.btn#cta-first:hover {
+                background: #1C7D25;
+            }
+            .buttons > a.btn#cta-second:hover {
+                background: #1362AB;
+            }
+            a.btn#cta-first {
+            }
+            a.btn#cta-second {
+                font-size: 24px;
             }
 
-            .m-b-md {
-                margin-bottom: 30px;
+            @media screen and (min-width:1024px) {
+                #logo {
+                    margin-top: 38px;
+                }
+                #hero {
+                    padding-top: 60px;
+                    height: 300px;
+                }
+                #hero > .title {
+                    font-size: 54px;
+                    line-height: 60px;
+                    padding:0 100px;
+                }
+                #hero > .description {
+                    height: 175px;
+                    padding:0 100px;
+                }
+                .buttons {
+                    padding-left:700px;
+                    margin-top: -120px;
+                }
+                a.btn {
+                    width:240px;
+                    border-radius: 7px;
+                }
+                a.btn#cta-first {
+                    margin-right:5px;
+                }
+                a.btn#cta-second {
+                    margin-right: 10px;
+                }
             }
+
+
+
+
+            ul {
+                margin:0;padding:0;
+            }
+
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+        <div id="page">
+            <div id="logo">
+                <img src="/images/logo.png" alt="logo">
+            </div>
+            <div id="hero">
+                <div class="title">
+                    Add more depth to Bus Simulator
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="description">
+                    <ul style="list-style: none;margin:0;">
+                    <li>-Share your routes quickly.</li>
+                    <li>-Get randomized driving schedule.</li>
+                    <li>-Manage your online company.</li>
+                    <li>-And other features...</li>
+                    </ul>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="buttons">
+                    <a class="btn" href="{{route('register')}}" id="cta-first">
+                        Start Now!
+                    </a>
+                    <a class="btn" href="{{route('share')}}" id="cta-second">
+                        Quickly Share Route
+                    </a>
                 </div>
             </div>
-        </div>
+
+
+            </div>
     </body>
 </html>
+

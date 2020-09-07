@@ -43,7 +43,12 @@ Route::group(["prefix"=>"companies","middleware"=>"auth"],function() {
 Auth::routes();
 
 Route::prefix('/')->group(function() {
-    Route::get('/', 'HomeController@index')->name('home');
+    if(auth()->user()) {
+        Route::get('/', 'CompanyController@details')->with(["id"=>auth()->user()->company->id])->name('home');
+    }
+    else {
+        Route::get('/', 'HomeController@index')->name('home');
+    }
     Route::get('/share', 'HomeController@share')->name('share');
 });
 
