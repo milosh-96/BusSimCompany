@@ -25,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(auth()->user()) {
+            $vars = ["company"=>auth()->user()->company,"title"=>"Welcome"];
+            return view('companies.details',$vars);
+        }
         return view('welcome');
     }
 

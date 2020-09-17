@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.6.2/tailwind.min.css">
     <link rel="stylesheet" href="/css/main.css">
     @include('global.header-icons')
+    @livewireStyles
     <title>
         {{isset($title) ? $title : "Index"}} - Bus Sim Company
      </title>
@@ -31,5 +32,6 @@
     @include('global.footer')
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
      @yield('scripts')
+     @livewireScripts
 </body>
 </html>

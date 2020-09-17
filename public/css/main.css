@@ -710,8 +710,8 @@ select.big-select {
   border-color: rgba(45, 55, 72, var(--border-opacity));
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 #header-menu {
@@ -720,8 +720,8 @@ select.big-select {
   justify-content: space-between;
   flex-wrap: wrap;
   --bg-opacity: 1;
-  background-color: #dd6b20;
-  background-color: rgba(221, 107, 32, var(--bg-opacity));
+  background-color: #f7fafc;
+  background-color: rgba(247, 250, 252, var(--bg-opacity));
   padding: 1.5rem;
 }
 
@@ -730,8 +730,8 @@ select.big-select {
   align-items: center;
   flex-shrink: 0;
   --text-opacity: 1;
-  color: #fff;
-  color: rgba(255, 255, 255, var(--text-opacity));
+  color: #2d3748;
+  color: rgba(45, 55, 72, var(--text-opacity));
   margin-right: 1.5rem;
 }
 
@@ -755,9 +755,16 @@ select.big-select {
   display: block;
   margin-top: 1rem;
   --text-opacity: 1;
-  color: #edf2f7;
-  color: rgba(237, 242, 247, var(--text-opacity));
+  color: #2d3748;
+  color: rgba(45, 55, 72, var(--text-opacity));
   margin-right: 1rem;
+}
+
+#header-menu .menu-items > a:hover {
+  --text-opacity: 1;
+  color: #1a202c;
+  color: rgba(26, 32, 44, var(--text-opacity));
+  text-decoration: underline;
 }
 
 @media (min-width:1024px) {
@@ -767,17 +774,8 @@ select.big-select {
   }
 }
 
-#header-menu .menu-items > a :hover {
-  --text-opacity: 1;
-  color: #fff;
-  color: rgba(255, 255, 255, var(--text-opacity));
-}
-
 #page {
   padding: 1.25rem;
-  --bg-opacity: 1;
-  background-color: #fff;
-  background-color: rgba(255, 255, 255, var(--bg-opacity));
   min-height: 100vh;
   width: 91.666667%;
   margin-top: 0;
@@ -883,3 +881,7 @@ ul .generic-list {
   color: #742a2a;
   color: rgba(116, 42, 42, var(--text-opacity));
 }
+
+
+
+

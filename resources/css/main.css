@@ -67,13 +67,13 @@ select {
 }
 
 #topbar {
-    @apply bg-gray-900 text-white shadow-outline border-b-2 border-gray-800 py-2 px-5;
+    @apply bg-gray-900 text-white shadow-outline border-b-2 border-gray-800 py-2 px-2;
 }
 
 #header-menu {
-    @apply flex items-center justify-between flex-wrap bg-orange-600 p-6;
+    @apply flex items-center justify-between flex-wrap bg-gray-100 p-6;
     .logo {
-        @apply flex items-center flex-shrink-0 text-white mr-6;
+        @apply flex items-center flex-shrink-0 text-gray-800 mr-6;
         .icon {
             @apply h-8 w-8 mr-2;
         }
@@ -84,20 +84,21 @@ select {
     .menu-items {
         @apply text-sm;
         > a {
-            @apply block mt-4 text-gray-200 mr-4;
+            @apply block mt-4 text-gray-800 mr-4;
+            &:hover {
+                @apply text-gray-900 underline;
+            }
             @media (min-width:1024px) {
                 display: inline-block;
                 margin-top:0;
             }
-            :hover {
-                @apply text-white;
-            }
+
         }
     }
 }
 
 #page {
-    @apply p-5 bg-white min-h-screen w-11/12 my-0 mx-auto
+    @apply p-5 min-h-screen w-11/12 my-0 mx-auto
 }
 
 #menu div {
@@ -147,3 +148,7 @@ ul {
         @apply bg-red-300 border-red-400 text-red-900;
    }
 }
+
+
+
+

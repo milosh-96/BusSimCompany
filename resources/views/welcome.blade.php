@@ -133,6 +133,9 @@
     </head>
     <body>
         <div id="page">
+            <div id="topbar">
+                <a href="{{route('login')}}">Login</a>
+            </div>
             <div id="logo">
                 <img src="/images/logo.png" alt="logo">
             </div>
@@ -156,6 +159,7 @@
                         Quickly Share Route
                     </a>
                 </div>
+
             </div>
 
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('routes')->group(function() {
     Route::get('/create','HomeController@share')->name('routes.create');
     Route::post('/','RouteController@store')->name('routes.store');
-    Route::get('/','HomeController@index')->name('routes.index');
-    Route::get('/index','HomeController@index')->name('routes.index');
+    Route::get('/','RouteController@index')->name('routes.index');
+    Route::get('/index','RouteController@index')->name('routes.index');
     Route::post('quick-share','RouteController@quickShare')->name('routes.post-quick-share');
     Route::prefix('{hash_id}')->group(function() {
         Route::get('/details','RouteController@details')->name('routes.details');
@@ -44,7 +45,6 @@ Auth::routes();
 
 Route::prefix('/')->group(function() {
     if(auth()->user()) {
-        Route::get('/', 'CompanyController@details')->with(["id"=>auth()->user()->company->id])->name('home');
     }
     else {
         Route::get('/', 'HomeController@index')->name('home');
@@ -60,5 +60,12 @@ Route::prefix('stops')->group(function() {
     Route::prefix('{stop}/{slug}')->group(function() {
         Route::get('/details','StopController@details')->name('stops.details');
         Route::get('/edit','StopController@edit')->name('stops.edit');
+    });
+});
+
+
+Route::get('mail-test',function() {
+    Mail::send('welcome', [], function($message) {
+        $message->to('milosjovanovic042@gmail.com')->subject('Testing mails');
     });
 });
