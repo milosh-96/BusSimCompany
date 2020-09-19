@@ -21,7 +21,7 @@ class Route extends Model
         $startStop = str_replace("- ","/",$this->stops->first()->name);
         $lastStop = str_replace("- ","/",$this->stops->last()->name);
         if($number) {
-            return sprintf("%d: %s - %s",$this->attributes['number'],$startStop,$lastStop);
+            return sprintf("%s: %s - %s",$this->attributes['number'],$startStop,$lastStop);
         }
         return sprintf("%s - %s",$startStop,$lastStop);
     }

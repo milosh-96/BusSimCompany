@@ -882,6 +882,7 @@ ul .generic-list {
   color: rgba(116, 42, 42, var(--text-opacity));
 }
 
-
-
+.connectedSortable li {
+  cursor: move;
+}
 

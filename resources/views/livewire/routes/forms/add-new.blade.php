@@ -17,9 +17,9 @@
             <form action="{{$this->formAction}}" method="POST">
                 {{ csrf_field() }}
 
-                <div class="bg-white p-3">
+                <div class="bg-white p-3 w-full">
                     <label>Route Number:</label>
-                    <input type="text" class="rounded shadow-sm text-center" placeholder="23,U1,M13..." name="number" @if($edit) value="{{$route->number}}"@endif>
+                    <input type="text" class="w-full rounded shadow-sm text-center" placeholder="23,U1,M13..." name="number" @if($edit) value="{{$route->number}}"@endif>
                 </div>
 
                 <ul id="sortable1" class="connectedSortable bg-white shadow-sm p-3" style="min-height:400px">
@@ -43,7 +43,7 @@
           <div class="w-5/12" style="max-height: 500px;overflow-y:scroll">
             <ul id="sortable2" class="flex flex-wrap connectedSortable">
                 @foreach($areas as $area)
-                <div class="w-2/4">
+                <div class="w-full md:w-2/4">
                     <strong>{{$area->name}}</strong>
                     @foreach($area->stops as $stop)
                     @if($edit)
