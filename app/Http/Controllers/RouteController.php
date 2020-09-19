@@ -114,6 +114,8 @@ class RouteController extends Controller
 
 
     public function quickShare(Request $request) {
+
+        return $request->all();
         $request->validate([
             "stops"=>"required|array|min:3",
             "number"=>"required|max:25"

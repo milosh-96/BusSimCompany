@@ -1,105 +1,89 @@
-<form class="default-form" wire:submit.prevent="saveRoute" method="POST">
-
+<div class="default-form">
     @if(!auth()->user() || !auth()->user()->company)
     <div class="message-box alert">
         To save your routes, <a href="{{route('register')}}">Register</a>! Quick Share Routes will be deleted after 5 days.
     </div>
     @endif
-    <p class="italic">
+    <p class="italic p-3 bg-white shadow-sm mb-3">
         @if(!auth()->user() || !auth()->user()->company)
         If you want to quickly share your routes use this tool. If you want to maintain a
         collection of your routes - <a href="{{route('register')}}">register</a> and create your company. Read more details <a href="#">here</a>.
         @endif
     </p>
     <div>
-        <div>
-           <label>Enter number of your route:</label> <input style="width:150px" placeholder="route number" class="text-2xl rounded-md mx-3 text-center text-white bg-green-500" wire:model="number" />
-        </div>
-        <div class="md:flex">
-            <div class="subject-info-box-1 w-5/12">
-                <select multiple="multiple" size="10" style="max-height: 300px"  wire:model="stops[]" id="lstBox1" class="w-full">
-                </select>
-              </div>
 
-              <div class="subject-info-arrows text-center w-2/12">
-                <input type="button" id="btnAllRight" value=">>"" class="block w-full btn btn-default" />
-                <input type="button" id="btnRight" value=">"" class="block w-full btn btn-default" />
-                <input type="button" id="btnLeft" value="<"" class="block w-full btn btn-default" />
-                <!--<input type="button" id="btnAllLeft" value="<<"" class="block w-full btn btn-default" />-->
-              </div>
+       <div class="flex">
+           <div class="w-6/12">
+            <form action="{{$this->formAction}}" method="POST">
+                {{ csrf_field() }}
 
-              <div class="subject-info-box-2 w-5/12">
-                <select multiple="multiple"  size="10" style="height: 300px"  id="lstBox2" class="w-full">
-                  @foreach($areas as $area)
-                      <optgroup label="{{$area->name}}">
-                        @foreach($area->stops as $stop)
-                        <option value="{{$stop->id}}">{{$stop->name}}</option>
+                <div class="bg-white p-3">
+                    <label>Route Number:</label>
+                    <input type="text" class="rounded shadow-sm text-center" placeholder="23,U1,M13..." name="number" @if($edit) value="{{$route->number}}"@endif>
+                </div>
+
+                <ul id="sortable1" class="connectedSortable bg-white shadow-sm p-3" style="min-height:400px">
+                    <span class="text-gray-200">
+                        drag&drop bus stops here in order of your route
+                        @if($edit)
+                        @foreach($route->stops as $stop)
+                        <li class="ui-state-default">{{$stop->name}}
+                            <input type="hidden" name="stops[]" value="{{$stop->id}}">
+                        </li>
                         @endforeach
-                    </optgroup>
-                  @endforeach
-                </select>
-              </div>
+                        @endif
+                    </span>
+                </ul>
+                <div class="w-full">
+                    <input type="submit" class="submit-button w-full" value="Share!">
+                </div>
+           </form>
+            </div>
+            <div class="w-1/12"></div>
+          <div class="w-5/12" style="max-height: 500px;overflow-y:scroll">
+            <ul id="sortable2" class="flex flex-wrap connectedSortable">
+                @foreach($areas as $area)
+                <div class="w-2/4">
+                    <strong>{{$area->name}}</strong>
+                    @foreach($area->stops as $stop)
+                    @if($edit)
+                        @if(!$route->stops->contains($stop))
+                        <li class="ui-state-default">{{$stop->name}}
+                            <input type="hidden" name="stops[]" value="{{$stop->id}}">
+                        </li>
+                        @endif
+                    @else
+                    <li class="ui-state-default">{{$stop->name}}
+                        <input type="hidden" name="stops[]" value="{{$stop->id}}">
+                    </li>
+                    @endif
+                    @endforeach
+                    <div class="mb-2"></div>
+                </div>
+                @endforeach
+              </ul>
+         </div>
+       </div>
+    </div>
 
-              <div class="clearfix"></div>
-        </div>
 
 </div>
-<div class="w-full">
-    <input type="submit" class="submit-button w-full" value="Share!">
-</div>
-</form>
 
 
 @section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script>
-(function () {
-    $("#btnRight").click(function (e) {
-      var selectedOpts = $("#lstBox1 option:selected");
-      if (selectedOpts.length == 0) {
-        alert("Nothing to move.");
-        e.preventDefault();
-      }
+    $( function() {
+      $( "#sortable1, #sortable2" ).sortable({
+        connectWith: ".connectedSortable",
+        items:"li"
+      }).disableSelection();
+    } );
+    </script>
 
-      $("#lstBox2").append($(selectedOpts).clone());
-      $(selectedOpts).remove();
-      e.preventDefault();
-    });
+@endsection
 
-    $("#btnAllRight").click(function (e) {
-      var selectedOpts = $("#lstBox1 option");
-      if (selectedOpts.length == 0) {
-        alert("Nothing to move.");
-        e.preventDefault();
-      }
-
-      $("#lstBox2").append($(selectedOpts).clone());
-      $(selectedOpts).remove();
-      e.preventDefault();
-    });
-
-    $("#btnLeft").click(function (e) {
-      var selectedOpts = $("#lstBox2 option:selected");
-      if (selectedOpts.length == 0) {
-        alert("Nothing to move.");
-        e.preventDefault();
-      }
-
-      $("#lstBox1").append($(selectedOpts).clone());
-      $(selectedOpts).remove();
-      e.preventDefault();
-    });
-
-    $("#btnAllLeft").click(function (e) {
-      var selectedOpts = $("#lstBox2 option");
-      if (selectedOpts.length == 0) {
-        alert("Nothing to move.");
-        e.preventDefault();
-      }
-
-      $("#lstBox1").append($(selectedOpts).clone());
-      $(selectedOpts).remove();
-      e.preventDefault();
-    });
-  })(jQuery);
-</script>
-  @endsection
+@section('external-css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+@endsection

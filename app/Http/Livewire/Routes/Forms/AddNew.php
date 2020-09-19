@@ -12,39 +12,22 @@ use App\Route;
 
 class AddNew extends Component
 {
-    private $routeService;
     public $areas;
-    public $stops;
-    public $number;
+    public $edit;
+    public $route;
+    public $hash_id;
+
+    public $formAction;
+
     public function mount() {
         $this->areas = Area::all();
+        $this->formAction = route("routes.post-quick-share");
+        if($this->edit) {
+            $this->route = Route::where('hash_id',$this->hash_id)->first();
+            $this->formAction = route("routes.update",$this->hash_id);
+        }
     }
 
-    public function saveRoute(Request $request) {
-
-        $anon = true;
-        if(auth()->user() && auth()->user()->company) {
-            $anon = false;
-        }
-        $data["hash_id"]=Str::uuid();
-        $data["anonymous"]=true;
-
-        if(!$anon) {
-            $data["anonymous"]=false;
-            $data["company_id"]=auth()->user()->company->id;
-        }
-        $i = 1;
-        $data["stops"]=$this->stops;
-        $data["number"]=$this->number;
-        return $this->stops;
-        $route = Route::create($data);
-        foreach($data['stops'] as $stop) {
-            $route->stops()->attach($stop,['position'=>$i,'direction'=>1]);
-            $i++;
-        }
-
-        return redirect()->route('routes.details', ['hash_id' => $route->hash_id]);
-    }
 
     public function render()
     {
