@@ -69,3 +69,7 @@ Route::get('mail-test',function() {
         $message->to('milosjovanovic042@gmail.com')->subject('Testing mails');
     });
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
