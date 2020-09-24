@@ -53,15 +53,9 @@ class RouteController extends Controller
      * @param  \App\Route  $route
      * @return \Illuminate\Http\Response
      */
-    public function details(Route $route,$hash_id)
+    public function details()
     {
-
-        $route = $route->where('hash_id',$hash_id)->first();
-        $vars = [
-            "title"=>$route->autoName(true),
-            "route"=>$route
-        ];
-        return view('routes.details')->with($vars);
+        return view('routes.details');
     }
 
     /**

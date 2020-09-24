@@ -1,25 +1,10 @@
-@extends('layouts.layout')
-@section('content')
-    <div id="page"">
-        <div class="flex">
-            <div class="w-3/12 bg-white p-5 rounded shadow-sm">
-                @if(auth()->user()->company)
-                <h3>{{auth()->user()->company->name}}</h3>
+@if(auth()->user())
+    <x-app-layout>
+        @livewire('companies.details')
+    </x-app-layout>
+@else
+<x-guest-layout>
+    @livewire('companies.details')
+</x-guest-layout>
+@endif
 
-                <a href="#">Get Driving Schedule</a>
-                @else
-                <a href="#">Create Your Company</a>
-                @endif
-            </div>
-            <div class="w-1/12"></div>
-            <div class="w-8/12 bg-white p-5 rounded shadow-sm">
-                @if(auth()->user()->company)
-                <livewire:routes.routes-list></livewire:routes.routes-list>
-                @endif
-            </div>
-        </div>
-
-    </div>
-
-
-@endsection
