@@ -17,6 +17,8 @@
         <div class="w-8/12 bg-white p-5 rounded shadow-sm">
             @if($user->company)
             <livewire:routes.routes-list></livewire:routes.routes-list>
+            <hr>
+            <a href="{{route('share')}}">Add New</a>
             @endif
         </div>
     </div>
