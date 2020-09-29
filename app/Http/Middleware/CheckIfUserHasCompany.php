@@ -15,12 +15,13 @@ class CheckIfUserHasCompany
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user() && auth()->user()->company) {
-            return redirect()->route(
-                'companies.details',
-                auth()->user()->company->permalink(true)
-            );
+        if(auth()->user()) {
+            if( auth()->user()->company != null) {
+                return $next($request);
+            }
+            return redirect()->route('companies.create');
         }
-        return $next($request);
+        return redirect()->route('welcome.guest');
     }
 }
+

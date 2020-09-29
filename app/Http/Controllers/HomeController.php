@@ -15,7 +15,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
     }
 
     /**
@@ -32,11 +31,22 @@ class HomeController extends Controller
         return view('welcome');
     }
 
+    public function welcome() {
+        if(auth()->user()) {
+            return redirect()->route('home');
+        }
+        return view('welcome');
+    }
+
     public function share() {
         $vars = [
             "areas"=>Area::all(),
             "title"=>"Quick Share"
         ];
         return view('routes.share')->with($vars);
+    }
+
+    public function drivingSchedule() {
+        return view('profile.driving-schedule');
     }
 }

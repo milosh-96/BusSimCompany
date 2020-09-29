@@ -106,7 +106,7 @@ class CreateStopsTable extends Migration
             ["name"=>"Airport","area_id"=>10],
             ["name"=>"Wachowski Industries","area_id"=>11],
             ["name"=>"Grain Lane","area_id"=>11],
-            ["name"=>"Kerststadt Durmitory","area_id"=>11],
+            ["name"=>"Kerststadt Dormitory","area_id"=>11],
             ["name"=>"Hill Road","area_id"=>11],
             ["name"=>"Ministry of Science","area_id"=>11],
             ["name"=>"Unger Road","area_id"=>11],

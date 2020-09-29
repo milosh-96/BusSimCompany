@@ -45,7 +45,7 @@ class CompanyController extends Controller
                 "hash_id"=>Str::uuid()
             ]);
         $company = Company::create($request->all());
-        return redirect()->route('companies.index');
+        return redirect()->route('home');
     }
 
     /**

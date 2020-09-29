@@ -1,5 +1,5 @@
-@extends('layouts.layout')
-@section('content')
+<x-app-layout>
+@slot('header','One more step, create your company and the fun begins!')
 <div id="page">
 
     <div class="flex">
@@ -39,4 +39,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-app-layout>

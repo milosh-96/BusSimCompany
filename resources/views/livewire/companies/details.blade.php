@@ -8,7 +8,7 @@
             @if(auth()->user()->company)
             <h3>{{auth()->user()->company->name}}</h3>
 
-            <a href="#">Get Driving Schedule</a>
+            <a href="{{route('user.driving-schedule')}}">Get Driving Schedule</a>
             @else
             <a href="#">Create Your Company</a>
             @endif
