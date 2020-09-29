@@ -52,7 +52,6 @@ class StopController extends Controller
     public function details(Stop $stop)
     {
         $vars = [
-            "stop"=>$stop,
             "title"=>"Bus Stop: " . $stop->name
         ];
         return view('stops.details')->with($vars);

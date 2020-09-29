@@ -60,8 +60,8 @@ Route::prefix('stops')->group(function() {
   //  Route::post('/','StopController@store')->name('stops.store');
     Route::get('/','StopController@index')->name('stops.index');
     Route::get('/index','StopController@index')->name('stops.index');
-    //Route::prefix('{stop}/{slug}')->group(function() {
-      //  Route::get('/details','StopController@details')->name('stops.details');
+    Route::prefix('{stop}/{slug}')->group(function() {
+      Route::get('/details','StopController@details')->name('stops.details');
    //     Route::get('/edit','StopController@edit')->name('stops.edit');
     });
 });
