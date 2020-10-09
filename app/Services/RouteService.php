@@ -23,4 +23,9 @@ class RouteService {
         return $route;
     }
 
+    public function deleteRoute(\App\Route $route) {
+        $route->stops()->detach();
+        $route->delete();
+    }
+
 }

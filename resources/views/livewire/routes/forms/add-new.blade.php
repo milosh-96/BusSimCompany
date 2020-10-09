@@ -9,6 +9,10 @@
         If you want to quickly share your routes use this tool. If you want to maintain a
         collection of your routes - <a href="{{route('register')}}">register</a> and create your company. Read more details <a href="#">here</a>.
         @endif
+                    <strong>
+                Please note this is not a route designer. You should organize your routes in the game.
+        </strong>
+
     </p>
     <div>
 

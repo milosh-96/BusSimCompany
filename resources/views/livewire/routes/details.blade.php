@@ -10,12 +10,14 @@
             @endif
         </div>
 
-    @if($route->timetable) {
-    <div class="timetable pl-20">
+    @if($route->timetable)
+    <div class="timetable">
         <h2 id="timetable">Timetable</h2>
 
+        <div style="max-height: 200px;overflow-y:scroll">
+
         <table class="bordered-table table-fixed w-full">
-            <thead>
+            <thead class="bg-white">
                 <tr class="uppercase">
                 <th class="w-1/12 text-left">Hour</th>
                 <th class="w-2/12 text-left">Week days</th>
@@ -24,38 +26,18 @@
                 </tr>
             </thead>
             <tbody>
+                @for($i = 0;$i < 24;$i++)
                 <tr class="uppercase">
-                    <td>04</td>
+                    <td>{{str_pad($i,2,"0",STR_PAD_LEFT)}}</td>
                     <td>05,15,25,45,55</td>
                     <td>05,35</td>
                     <td>05,35</td>
                 </tr>
-                <tr class="uppercase">
-                    <td>05</td>
-                    <td>05,15,25,45,55</td>
-                    <td>05,35</td>
-                    <td>05,35</td>
-                </tr>
-                <tr class="uppercase">
-                    <td>06</td>
-                    <td>05,15,25,45,55</td>
-                    <td>05,35</td>
-                    <td>05,35</td>
-                </tr>
-                <tr class="uppercase">
-                    <td>07</td>
-                    <td>05,15,25,45,55</td>
-                    <td>05,35</td>
-                    <td>05,35</td>
-                </tr>
-                <tr class="uppercase">
-                    <td>08</td>
-                    <td>05,15,25,45,55</td>
-                    <td>05,35</td>
-                    <td>05,35</td>
-                </tr>
+                @endfor
+
             </tbody>
         </table>
+        </div>
     </div>
     @endif
 
@@ -83,4 +65,5 @@
     </div>
     </div>
     <a href="{{route('routes.edit',$route->permalink(true))}}">Edit</a>
+    <a href="#" wire:click="delete">Delete</a>
 </div>

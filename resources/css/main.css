@@ -1,5 +1,9 @@
 @tailwind base;
 
+body {
+    background: #333 url('/images/background.jpg');
+    background-size: cover;
+}
 h1 {
     @apply text-5xl;
 }

@@ -19,6 +19,10 @@ class Route extends Model
         return $this->belongsTo('App\Company');
 
     }
+
+    public function timetable() {
+        return $this->hasOne('App\Timetable');
+    }
     public function stops() {
         return $this->belongsToMany('App\Stop');
     }

@@ -15,7 +15,7 @@
      </title> <!-- Scripts -->
      <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
  </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="text-gray-800">
 
         <div class="min-h-screen bg-gray-100">
             @if(auth()->user())

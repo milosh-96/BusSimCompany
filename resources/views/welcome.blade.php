@@ -14,9 +14,11 @@
                 box-sizing: border-box;
             }
             body {
-                background: #F5F5F5;
+                background: #333 url('/images/background.jpg');
+                background-size:cover;
                 margin: 0;
                 padding:0;
+                font-family:sans-serif;
             }
             #logo {
                 width: 100px;
@@ -33,7 +35,9 @@
                 width: 100%;
                 padding-top:10px;
                 box-sizing: border-box;
-                background: #EDEDED;
+                background: linear-gradient(to bottom,transparent,#333);
+                border-top:14px solid orange;
+                border-bottom:14px solid green;
             }
             #hero > .title {
                 width: 100%;
@@ -46,14 +50,14 @@
                 text-align:left;
                 padding:0 20px;
                 margin-top: 30px;
-                color: #1C7D25;
+                color: #f2f2f2;
             }
             #hero > .description {
                 font-family: Roboto;
                 font-style: italic;
                 font-weight: 500;
                 font-size: 24px;
-                color: #1C7D25;
+                color: #f2f2f2;
                 width:100%;
                 padding: 20px;
             }
@@ -91,7 +95,7 @@
                     margin-top: 38px;
                 }
                 #hero {
-                    padding-top: 60px;
+                    padding-top: 20px;
                     height: 300px;
                 }
                 #hero > .title {
@@ -111,6 +115,7 @@
                     width:240px;
                     border-radius: 7px;
                 }
+
                 a.btn#cta-first {
                     margin-right:5px;
                 }
@@ -119,6 +124,9 @@
                 }
                 .buttons {
                     display: flex;
+                }
+                a.login {
+                    color:#fff;
                 }
             }
 
@@ -134,7 +142,8 @@
     <body>
         <div id="page">
             <div id="topbar">
-                <a href="{{route('login')}}">Login</a>
+
+                <a style="padding:5px;margin-top:5px;display:block" class="login" href="{{route('login')}}">Already have Account? Login</a>
             </div>
             <div id="logo">
                 <img src="/images/logo.png" alt="logo">
@@ -161,7 +170,6 @@
                 </div>
 
             </div>
-
 
             </div>
     </body>

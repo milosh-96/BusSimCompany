@@ -6,10 +6,23 @@ use Livewire\Component;
 
 class DrivingSchedule extends Component
 {
-  public  $routes;
-
+    public  $routes;
+    public $buses;
+    public $modes;
+    public $userBus;
+    public $dayPeriods;
     public function mount() {
+
+        $this->buses = ["Citaro K","Citaro G","MAN Lion's City","Iveco Urbanway 12"];
+        $this->modes = ["Round Trip","Loop"];
+        $this->dayPeriods = ["Morning (04-09)","Daytime (09-17)","Dusk (17-19)","Evening (19-23)","Night (23-04)"];
         $this->routes = $this->generate();
+
+        $this->userBus = [
+            "bus"=>$this->buses[rand(0,count($this->buses))],
+            "depotNo"=>rand(0,3000)
+        ];
+
     }
     public function render()
     {
@@ -18,8 +31,6 @@ class DrivingSchedule extends Component
 
     private function generate() {
         $initRoute = auth()->user()->company->routes->random(1)[0];
-        $modes = ["Round Trip","Loop"];
-        $buses = ["Citaro K","Citaro G","MAN Lion's City","Iveco Urbanway 12"];
         $i = 0;
         $generatedRoutes = [];
         while($i <= 4) {
@@ -30,8 +41,8 @@ class DrivingSchedule extends Component
                 ) {
                 $generatedRoutes[] = ((object)array(
                     "route"=>$route,
-                    "mode"=>$modes[rand(0,1)],
-                    "bus"=>$buses[rand(0,count($buses)-1)]
+                    "mode"=>$this->modes[rand(0,1)],
+                    "period"=>$this->dayPeriods[rand(0,count($this->dayPeriods)-1)],
                 ));
                 $i++;
             }
