@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Laravel\Socialite\Facades\Socialite;
+use App\Services\UserService;
 class LoginController extends Controller
 {
     /*
@@ -32,8 +34,45 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserService $userService)
     {
         $this->middleware('guest')->except('logout');
+        $this->userService = $userService;
     }
+
+    public function redirectToProvider()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('google')->user();
+        $dbUser = \App\User::where('email',$user->email)->first();
+        if($dbUser) {
+            $dbUser->google_token = $user->token;
+            $dbUser->save();
+            auth()->login($dbUser);
+        }
+        else {
+            $data = [
+                "name"=>$user->getName(),
+                "email"=>$user->getEmail(),
+                "password"=>""
+            ];
+            $dbUser = $this->userService->createAccount($data);
+            $dbUser->google_token = $user->token;
+            $dbUser->save();
+            auth()->login($dbUser);
+        }
+
+        return redirect()->route('home');
+        // $user->token;
+    }
+
 }
