@@ -4,6 +4,9 @@
             <x-jet-authentication-card-logo />
         </x-slot>
 
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+
         <x-jet-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('register') }}">

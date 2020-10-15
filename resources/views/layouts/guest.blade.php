@@ -15,6 +15,9 @@
      </title>
      <!-- Scripts -->
      <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
+
+    
+     <meta name="google-signin-client_id" content="76857937580-thij4opu95clqd60404467ju6c94k4ee.apps.googleusercontent.com">
 </head>
 <body class="text-gray-800">
    @if(auth()->user())
@@ -44,5 +47,8 @@
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
          @yield('scripts')
          @livewireScripts
+
+ 
+
     </body>
 </html>

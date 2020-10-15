@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-Route::get('/login/google','Auth\LoginController@redirectToProvider');
-Route::get('/login/google/handle','Auth\LoginController@handleProviderCallback');
+Route::prefix('login')->group(function() {
+    Route::prefix('{provider}')->group(function() {
+        Route::get('/','Auth\LoginController@redirectToProvider')->name('login.via-provider');
+    });
+    Route::get('/google/handle','Auth\LoginController@handleGoogleProviderCallback')->name('login.google.handle');
+});
+
 
 Route::group(["prefix"=>"user","middleware"=>["auth","hasCompany"]],function() {
     Route::get('driving-schedule','HomeController@drivingSchedule')->name('user.driving-schedule');

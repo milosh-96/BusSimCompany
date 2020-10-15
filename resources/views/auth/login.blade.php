@@ -1,7 +1,10 @@
 <x-guest-layout>
+
     <x-jet-authentication-card>
 
-
+    <a href="{{route('login.via-provider',['provider'=>'google'])}}" class="block mb-4">
+            <img src="/images/icons/btn_google_signin_dark_normal_web@2x.png" width="150px" alt="Login via Google">
+        </a>
         <x-jet-validation-errors class="mb-4" />
 
         @if (session('status'))
@@ -9,6 +12,11 @@
                 {{ session('status') }}
             </div>
         @endif
+
+
+   
+
+
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
