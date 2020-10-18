@@ -1,10 +1,14 @@
-        @slot('header',$stop->name)
         <div>
-            <hr>
+            <h2>{{$stop->name}}</h2>
                 Area: {{$stop->area->name}}<p>
                 @if(auth()->user())
-                Active Routes: @foreach($stop->routes as $route) <a href="{{route('routes.details',$route->permalink(true))}}">{{$route->number}} </a>  @endforeach
+                    @livewire('routes.routes-list', ['routes' => $stop->routes], key($stop->id))
+                @else
+                <p class="py-5">
+                    <strong>Stat: </strong>  {{count($stop->routes)}} routes serve this stop.
+                </p>
                 @endif
+
 
         </div>
 

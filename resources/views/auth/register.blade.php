@@ -1,11 +1,10 @@
-<x-guest-layout>
+<x-app-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
 
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
+        @include('global.login-buttons.google-signin')
 
         <x-jet-validation-errors class="mb-4" />
 
@@ -43,4 +42,4 @@
             </div>
         </form>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-app-layout>

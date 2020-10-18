@@ -17,23 +17,28 @@
  </head>
 <body class="text-gray-800">
 
-        <div class="min-h-screen bg-gray-100">
-            @if(auth()->user())
-                @livewire('navigation-dropdown')
-            @endif
-            <!-- Page Heading -->
-            @if(isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header ?? null }}
-                </div>
-            </header>
-            @endif
+        <div class="bg-gray-100">
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+           <div class="w-full">
+               <div class="bg-gray-700 p-2">
+                   <a href="{{route('home')}}">
+                    <img src="/images/logo.png" width="24px" alt="">
+                </a>
+               </div>
+            <div class="flex">
+                <div class="w-2/12 bg-gray-800 py-5">
+                    @include('global.side-nav')
+
+                </div>
+                <div class="w-1/12"></div>
+                <div class="w-8/12" style="padding-bottom:300px">
+                    <!-- Page Content -->
+                <main>
+                    {{ $slot }}
+                </main>
+                </div>
+            </div>
+           </div>
         </div>
 
         @stack('modals')

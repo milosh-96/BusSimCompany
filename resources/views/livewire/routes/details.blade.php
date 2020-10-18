@@ -1,13 +1,14 @@
     <x-slot name="header">
-                <span class="text-2xl route-number p-5">{{$route->number}}</span>
-                <span class="px-3">{{$route->autoName()}}</span>
+
      </x-slot>
      <div id="page">
 
         <div>
-            @if($route->company)
-            Operated By: {{$route->company->name}}
-            @endif
+            <div class="mb-5">
+                <span class="text-2xl route-number p-5">{{$route->number}}</span>
+                <span class="px-3">{{$route->autoName()}}</span>
+            </div>
+
         </div>
 
     @if($route->timetable)
@@ -64,6 +65,8 @@
         </div>
     </div>
     </div>
+    @if($route->ownedByLoggedInUser())
     <a href="{{route('routes.edit',$route->permalink(true))}}">Edit</a>
     <a href="#" wire:click="delete">Delete</a>
+    @endif
 </div>

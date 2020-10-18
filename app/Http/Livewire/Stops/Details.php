@@ -7,8 +7,8 @@ use App\Stop;
 class Details extends Component
 {
     public $stop;
-    public function mount(Stop $stop) {
-        $this->stop = $stop->first();
+    public function mount() {
+        $this->stop = request()->stop;
     }
     public function render()
     {

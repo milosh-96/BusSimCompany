@@ -7,8 +7,8 @@ use Livewire\Component;
 class RoutesList extends Component
 {
     public $routes;
-    public function mount() {
-        $this->routes = auth()->user()->company->routes;
+    public function mount($routes) {
+        $this->routes = $routes;
     }
     public function render()
     {

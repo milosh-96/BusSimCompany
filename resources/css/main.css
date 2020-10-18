@@ -102,7 +102,7 @@ select {
 }
 
 #page {
-    @apply p-5 min-h-screen w-11/12 my-0 mx-auto
+    @apply p-5 min-h-screen w-full my-0 mx-auto
 }
 
 #menu div {

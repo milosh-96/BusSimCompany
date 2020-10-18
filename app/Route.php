@@ -45,4 +45,13 @@ class Route extends Model
         }
         return sprintf("%s",$this->attributes["hash_id"]);
     }
+
+    public function ownedByLoggedInUser() {
+        if(auth()->user()) {
+            if($this->company->user_id == auth()->user()->id) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

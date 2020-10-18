@@ -19,7 +19,7 @@ class DrivingSchedule extends Component
         $this->routes = $this->generate();
 
         $this->userBus = [
-            "bus"=>$this->buses[rand(0,count($this->buses))],
+            "bus"=>$this->buses[rand(0,(count($this->buses)-1))],
             "depotNo"=>rand(0,3000)
         ];
 

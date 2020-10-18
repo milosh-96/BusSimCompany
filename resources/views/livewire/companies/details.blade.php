@@ -16,7 +16,7 @@
         <div class="w-1/12"></div>
         <div class="w-8/12 bg-white p-5 rounded shadow-sm">
             @if($user->company)
-            <livewire:routes.routes-list></livewire:routes.routes-list>
+            @livewire('routes.routes-list', ['routes' => $user->company->routes], key($user->company->id))
             <hr>
             <a href="{{route('share')}}">Add New</a>
             @endif
