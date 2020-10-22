@@ -161,7 +161,7 @@
                     </ul>
                 </div>
                 <div class="buttons">
-                    <a class="btn" href="{{route('register')}}" id="cta-first">
+                    <a class="btn" href="{{route('login.via-provider','google')}}" id="cta-first">
                         Start Now!
                     </a>
                     <a class="btn" href="{{route('share')}}" id="cta-second">

@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="Register">
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />

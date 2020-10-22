@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Mail;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::prefix('pages')->group(function() {
+    Route::get('privacy-policy',function() {return view('pages.privacy-policy');})->name('pages.privacy-policy');
+    Route::get('terms-of-service',function() {return view('pages.terms-of-service');})->name('pages.terms-of-service');
+});
 Route::prefix('login')->group(function() {
     Route::prefix('{provider}')->group(function() {
         Route::get('/','Auth\LoginController@redirectToProvider')->name('login.via-provider');
@@ -53,7 +56,7 @@ Route::group(["prefix"=>"companies","middleware"=>"auth"],function() {
     });
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::prefix('/')->group(function() {
 

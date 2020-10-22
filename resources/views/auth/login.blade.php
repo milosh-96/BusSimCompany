@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="Login">
 
     <x-jet-authentication-card>
 
