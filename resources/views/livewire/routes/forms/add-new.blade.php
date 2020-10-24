@@ -32,7 +32,7 @@
                         @if($edit)
                         @foreach($route->stops as $stop)
                         <li class="ui-state-default">{{$stop->name}}
-                            <input type="hidden" name="stops[]" value="{{$stop->id}}">
+                            <input type="hidden" name="stops[]" value="_{{$stop->id}}">
                         </li>
                         @endforeach
                         @endif
