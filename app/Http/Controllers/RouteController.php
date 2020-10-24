@@ -89,6 +89,7 @@ class RouteController extends Controller
         $i = 1;
         $route->stops()->sync([]);
         foreach($request->stops as $stop) {
+            $stop = str_replace("_","",$stop);
             $route->stops()->attach($stop,['position'=>$i,'direction'=>1]);
             $i++;
         }
