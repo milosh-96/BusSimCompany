@@ -117,9 +117,13 @@ class RouteController extends Controller
         if(auth()->user() && auth()->user()->company) {
             $annon = false;
         }
+        //return request()->stops;
         $route = $this->routeService->saveNewRoute($request->all(),$annon);
 
 
         return redirect()->route('routes.details', ['hash_id' => $route->hash_id]);
     }
 }
+
+
+//["73","72","71","70","68","67","44","45","46","47","49","57"]//

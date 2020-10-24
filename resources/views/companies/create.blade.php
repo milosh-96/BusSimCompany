@@ -1,5 +1,4 @@
 <x-app-layout>
-@slot('header','One more step, create your company and the fun begins!')
 <div id="page">
 
     <div class="flex">
