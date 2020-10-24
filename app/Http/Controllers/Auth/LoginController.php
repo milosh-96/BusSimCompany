@@ -57,7 +57,7 @@ class LoginController extends Controller
         if($dbUser) {
             $dbUser->google_token = $user->token;
             $dbUser->save();
-            auth()->login($dbUser);
+            auth()->login($dbUser,true);
         }
         else {
             $data = [
@@ -68,7 +68,7 @@ class LoginController extends Controller
             $dbUser = $this->userService->createAccount($data);
             $dbUser->google_token = $user->token;
             $dbUser->save();
-            auth()->login($dbUser);
+            auth()->login($dbUser,true);
         }
 
         return redirect()->route('home');

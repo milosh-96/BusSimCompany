@@ -111,7 +111,7 @@ class RouteController extends Controller
 
         $request->validate([
             "stops"=>"required|array|min:4",
-            "number"=>"required|max:25"
+            "number"=>"required"
         ]);
         $annon = true;
         if(auth()->user() && auth()->user()->company) {
