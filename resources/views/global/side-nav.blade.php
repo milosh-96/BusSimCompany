@@ -1,6 +1,6 @@
 <ul class="text-gray-100 px-5 w-full">
     @if(auth()->user())
-    <li><strong>{{auth()->user()->company->name}}</strong></li>
+    <li><strong>{{auth()->user()->company->name ?? "Welcome"}}</strong></li>
     <li><a href="{{route('home')}}">Dashboard</a></li>
     <li>Routes</li>
     @else
