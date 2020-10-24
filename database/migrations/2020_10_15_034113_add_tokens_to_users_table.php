@@ -26,7 +26,7 @@ class AddTokensToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('googe_token');
+            $table->dropColumn('google_token');
         });
     }
 }
