@@ -53,12 +53,12 @@
                     @if($edit)
                         @if(!$route->stops->contains($stop))
                         <li class="ui-state-default">{{$stop->name}}
-                            <input type="hidden" name="stops[]" value="{{$stop->id}}">
+                            <input type="hidden" name="stops[]" value="_{{$stop->id}}">
                         </li>
                         @endif
                     @else
                     <li class="ui-state-default">{{$stop->name}}
-                        <input type="hidden" name="stops[]" value="{{$stop->id}}">
+                        <input type="hidden" name="stops[]" value="_{{$stop->id}}">
                     </li>
                     @endif
                     @endforeach
