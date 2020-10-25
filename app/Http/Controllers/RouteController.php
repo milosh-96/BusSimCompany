@@ -88,7 +88,6 @@ class RouteController extends Controller
         $route = Route::where('hash_id',$hash_id)->updateOrCreate($request->except(['_token','stops']));
         $i = 1;
         $route->stops()->sync([]);
-        $stops = ["stops"];
         $tmp = [];
         foreach($request->stops as $stop) {
             $stop = str_replace("_","",$stop);
@@ -96,7 +95,6 @@ class RouteController extends Controller
             $tmp[] = $stop;
             $i++;
         }
-        return $tmp;
       return redirect()->route('routes.details',$route->permalink(true));
     }
 
