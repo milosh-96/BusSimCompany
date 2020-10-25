@@ -17,7 +17,14 @@ class RouteService {
         $route = Route::create($data);
         $i = 1;
        // return $data["stops"];
+
+        $newStops = array();
+
         foreach($data['stops'] as $stop) {
+            $newStops[] = str_replace("_","",$stop);
+        }
+
+        foreach($newStops as $stop) {
             $stop = str_replace("_","",$stop);
             $route->stops()->attach($stop,['position'=>$i,'direction'=>1]);
             $i++;
