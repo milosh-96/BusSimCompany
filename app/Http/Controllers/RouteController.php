@@ -89,11 +89,8 @@ class RouteController extends Controller
         $i = 1;
         $route->stops()->sync([]);
         foreach($request->stops as $stop) {
-            $tmp[] = ["stopId"=>$stop,"position"=>$i,"direction"=>1];
+            $route->stops()->attach($stop,['position'=>$i,'direction'=>1]);
             $i++;
-        }
-        foreach($tmp as $stopItem) {
-            $route->stops()->attach($stopItem["stopId"],['position'=>$stopItem["position"],'direction'=>1]);
         }
       return redirect()->route('routes.details',$route->permalink(true));
     }
@@ -114,19 +111,15 @@ class RouteController extends Controller
 
         $request->validate([
             "stops"=>"required|array|min:4",
-            "number"=>"required"
+            "number"=>"required|max:25"
         ]);
         $annon = true;
         if(auth()->user() && auth()->user()->company) {
             $annon = false;
         }
-        //return request()->stops;
         $route = $this->routeService->saveNewRoute($request->all(),$annon);
 
 
         return redirect()->route('routes.details', ['hash_id' => $route->hash_id]);
     }
 }
-
-
-//["73","72","71","70","68","67","44","45","46","47","49","57"]//

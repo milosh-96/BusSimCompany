@@ -24,7 +24,7 @@ class Route extends Model
         return $this->hasOne('App\Timetable');
     }
     public function stops() {
-        return $this->belongsToMany('App\Stop');
+        return $this->belongsToMany('App\Stop')->orderBy("position");
     }
 
     public function autoName($number = false)
