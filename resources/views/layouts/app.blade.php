@@ -20,10 +20,21 @@
         <div class="bg-gray-100">
 
            <div class="w-full">
-               <div class="bg-gray-700 p-2">
-                   <a href="{{route('home')}}">
-                    <img src="/images/logo.png" width="24px" alt="">
-                </a>
+               <div class="bg-gray-700 p-4">
+                    <div class="flex">
+                        <div class="w-2/12">
+                            <a href="{{route('home')}}">
+                                <img src="/images/logo.png" width="32px" alt="">
+                            </a>
+                        </div>
+                        <div class="w-10/12 text-right">
+                            <form action="{{route('logout')}}" method="POST">
+                                {{ csrf_field() }}
+                                <button class="bg-gray-600 hover:bg-gray-800 p-1 text-white">Logout</button>
+
+                            </form>
+                        </div>
+                    </div>
                </div>
             <div class="flex">
                 <div class="w-2/12 bg-gray-800 py-5">
