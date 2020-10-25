@@ -90,11 +90,11 @@ class RouteController extends Controller
         $route->stops()->sync([]);
         $tmp = [];
         foreach($request->stops as $stop) {
-            $stop = str_replace("_","",$stop);
             $route->stops()->attach($stop,['position'=>$i,'direction'=>1]);
             $tmp[] = $stop;
             $i++;
         }
+        return $tmp;
       return redirect()->route('routes.details',$route->permalink(true));
     }
 
