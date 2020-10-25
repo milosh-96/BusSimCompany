@@ -87,14 +87,11 @@ class RouteController extends Controller
     {
         $route = Route::where('hash_id',$hash_id)->updateOrCreate($request->except(['_token','stops']));
         $i = 1;
+        return $request->stops;
         $route->stops()->sync([]);
-        $newStops = array();
-
+        $stops = ["stops"];
         foreach($request->stops as $stop) {
-            $newStops[] = str_replace("_","",$stop);
-        }
-
-        foreach($newStops as $stop) {
+            $stop = str_replace("_","",$stop);
             $route->stops()->attach($stop,['position'=>$i,'direction'=>1]);
             $i++;
         }
