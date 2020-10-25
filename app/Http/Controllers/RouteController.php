@@ -93,7 +93,7 @@ class RouteController extends Controller
         foreach($request->stops as $stop) {
             $stop = str_replace("_","",$stop);
             $route->stops()->attach($stop,['position'=>$i,'direction'=>1]);
-            $tmp[$stop];
+            $tmp[] = $stop;
             $i++;
         }
         return $tmp;
